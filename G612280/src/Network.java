@@ -1,7 +1,6 @@
 import java.util.ArrayList;
 
 public class Network {
-	//Implementar el singelton igual
 	private static ArrayList<People> network;
 
 	private Network() {
@@ -9,10 +8,7 @@ public class Network {
 	}
 
 	public static ArrayList<People> getNetwork() {
-		if (network == null) {
-			network = new ArrayList<People>();
-		}else{
+		if (network == null) network = new ArrayList<People>();
 			return network;
-		}
 	}
 }
