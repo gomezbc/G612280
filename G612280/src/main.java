@@ -16,6 +16,7 @@ public class main {
 			break;
 		case 3:
 			System.out.println("Printing out people...");
+			System.out.println("Github");
 			break;
 		}
 
