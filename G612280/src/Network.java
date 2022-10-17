@@ -60,5 +60,25 @@ public class Network {
 		}
 	}
 
+	public void loadFromFileFriends(String fileName) {
+		try{
+			String friend1;
+			String friend2;
+			File myfilename = new File("G612280/src/data/"+fileName);
+			Scanner input2program = new Scanner (myfilename);
+			input2program.nextLine();
+			while ( input2program.hasNextLine() ){
+				String[] line = input2program.nextLine().split(",");
+				String friend1 = line[0];
+				String friend2 = line[1];
+			}
+			input2program.close();
+		}
+		catch ( FileNotFoundException e ) {
+				 e.printStackTrace();
+		
+		}
+	}
+
 	
 }

@@ -14,7 +14,8 @@ public class main_menu {
 			network.loadFromFile("peopleG612280.txt");
 			break;
 		case 2:
-			System.out.println("peopleG612280.txt");
+			System.out.println("Loading 'relationships'...");
+			network.loadFromFileFriends("friendsG612280.txt");
 			break;
 		case 3:
 			System.out.println("Printing out people...");
