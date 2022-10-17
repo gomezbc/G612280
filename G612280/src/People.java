@@ -15,17 +15,22 @@ public class People {
 	private String groupCode;
 	
 	public People(String pIdentifier, String pName, String pSurname, String pBirthday, String pGender, String pBirthplace, String pHometown, ArrayList<String> pStudiedat, ArrayList<String> pWorkedat, ArrayList<String> pMovies, String pGroupCode) {
-		this.setIdentifier(pIdentifier);
-		this.setName(pName);
-		this.setSurname(pSurname);
-		this.setBirthdate(pBirthday);
-		this.setGender(pGender);
-		this.setBirthplace(pBirthplace);
-		this.setHometown(pHometown);
-		this.setStudiedat(pStudiedat);
-		this.setWorkedat(pWorkedat);
-		this.setMovies(pMovies);
+		this.identifier = pIdentifier;
+		this.name = pName;
+		this.surname = pSurname;
+		this.birthdate = pBirthday;
+		this.gender = pGender;
+		this.birthplace = pBirthplace;
+		this.hometown = pHometown;
+		this.studiedat = pStudiedat;
+		this.workedat = pWorkedat;
+		this.movies = pMovies;
 		this.groupCode = pGroupCode;
+	}
+
+	@Override
+	public String toString(){
+		return "Identifier: " + this.identifier + " Name: " + this.identifier + " Surname: " + this.surname + " Birthdate: " + this.birthdate + "Group Code: " + this.groupCode;
 	}
 
 	public String getIdentifier() {
@@ -108,4 +113,11 @@ public class People {
 		this.movies = movies;
 	}
 
+	public String getGroupCode() {
+		return groupCode;
+	}
+
+	public void setGroupCode(String groupCode) {
+		this.groupCode = groupCode;
+	}
 }
