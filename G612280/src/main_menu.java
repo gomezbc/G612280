@@ -1,8 +1,8 @@
 import java.util.Scanner;
-
 public class main_menu {
 
 	private static Scanner sc = new Scanner(System.in);
+	private Network network = getNetwork();
 
 	public static void main(String[] args) {
 		menu();
@@ -10,13 +10,13 @@ public class main_menu {
 		switch (selec) {
 		case 1:
 			System.out.println("Loading 'People' into the network...");
+
 			break;
 		case 2:
 			System.out.println("Loading 'relationships'...");
 			break;
 		case 3:
 			System.out.println("Printing out people...");
-			System.out.println("Github prueba");
 			break;
 		}
 
