@@ -22,35 +22,34 @@ public class Network {
 
 	public void loadFromFile(String fileName) {
 		try{
-			File myfilename = new File("C:/Users/borja/git/G612280/G612280/src/data/"+fileName);
+			File myfilename = new File("G612280/src/data/"+fileName);
 			Scanner input2program = new Scanner (myfilename);
 			input2program.nextLine();
-			while ( input2program.hasNextLine() ){	
-				//System.out.println(input2program.nextLine());
-				input2program.useDelimiter(",");
-				String pIdentifier = input2program.next();
-				String pName = input2program.next();
-				String pSurname = input2program.next();
-				String pBirthday = input2program.next();
-				String pGender = input2program.next();
-				String pBirthplace = input2program.next();
-				String pHometown = input2program.next();
+			while ( input2program.hasNextLine() ){
+				String[] line = input2program.nextLine().split(",");
+				String pIdentifier = line[0];
+				String pName = line[1];
+				String pSurname = line[2];
+				String pBirthday = line[3];
+				String pGender = line[4];
+				String pBirthplace = line[5];
+				String pHometown = line[6];
 				ArrayList<String> pStudiedat = new ArrayList<String>();
-				String[] pStudiedatArray = input2program.next().split(";");
+				String[] pStudiedatArray = line[7].split(";");
 				for (String s : pStudiedatArray) {
 					pStudiedat.add(s);
 				}
 				ArrayList<String> pWorkedat = new ArrayList<String>();
-				String[] pWorkedatArray = input2program.next().split(";");
+				String[] pWorkedatArray = line[8].split(";");
 				for (String s : pWorkedatArray) {
 					pWorkedat.add(s);
 				}
 				ArrayList<String> pMovies = new ArrayList<String>();
-				String[] pMoviesArray = input2program.next().split(";");
+				String[] pMoviesArray = line[9].split(";");
 				for (String s : pMoviesArray) {
 					pMovies.add(s);
 				}
-				String pGroupCode = input2program.next();
+				String pGroupCode = line[10];
 				addToNetwork(pIdentifier, pName, pSurname, pBirthday, pGender, pBirthplace, pHometown, pStudiedat, pWorkedat, pMovies, pGroupCode);
 			}
 			input2program.close();
