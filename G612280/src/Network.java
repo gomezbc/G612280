@@ -16,8 +16,8 @@ public class Network {
 		return network;
 	}
 
-	public void addToNetwork(String pIdentifier, String pName, String pSurname, String pBirthday, String pGender, String pBirthplace, String pHometown, ArrayList<String> pStudiedat, ArrayList<String> pWorkedat, ArrayList<String> pMovies) {
-		network.people.add(new People(pIdentifier, pName, pSurname, pBirthday, pGender, pBirthplace, pHometown, pStudiedat, pWorkedat, pMovies));
+	public void addToNetwork(String pIdentifier, String pName, String pSurname, String pBirthday, String pGender, String pBirthplace, String pHometown, ArrayList<String> pStudiedat, ArrayList<String> pWorkedat, ArrayList<String> pMovies, String pGroupCode) {
+		network.people.add(new People(pIdentifier, pName, pSurname, pBirthday, pGender, pBirthplace, pHometown, pStudiedat, pWorkedat, pMovies, pGroupCode));
 	}
 
 	public void loadFromFile(String fileName) {
@@ -25,8 +25,9 @@ public class Network {
 			File myfilename = new File("C:/Users/borja/git/G612280/G612280/src/data/"+fileName);
 			Scanner input2program = new Scanner (myfilename);
 			input2program.nextLine();
-			while ( input2program.hasNextLine() ){		
-				input2program.useDelimiter("");
+			while ( input2program.hasNextLine() ){	
+				//System.out.println(input2program.nextLine());
+				input2program.useDelimiter(",");
 				String pIdentifier = input2program.next();
 				String pName = input2program.next();
 				String pSurname = input2program.next();
@@ -49,7 +50,8 @@ public class Network {
 				for (String s : pMoviesArray) {
 					pMovies.add(s);
 				}
-				addToNetwork(pIdentifier, pName, pSurname, pBirthday, pGender, pBirthplace, pHometown, pStudiedat, pWorkedat, pMovies);
+				String pGroupCode = input2program.next();
+				addToNetwork(pIdentifier, pName, pSurname, pBirthday, pGender, pBirthplace, pHometown, pStudiedat, pWorkedat, pMovies, pGroupCode);
 			}
 			input2program.close();
 		}

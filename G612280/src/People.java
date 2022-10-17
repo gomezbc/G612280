@@ -12,8 +12,9 @@ public class People {
 	private ArrayList<String> studiedat;
 	private ArrayList<String> workedat;
 	private ArrayList<String> movies;
+	private String groupCode;
 	
-	public People(String pIdentifier, String pName, String pSurname, String pBirthday, String pGender, String pBirthplace, String pHometown, ArrayList<String> pStudiedat, ArrayList<String> pWorkedat, ArrayList<String> pMovies) {
+	public People(String pIdentifier, String pName, String pSurname, String pBirthday, String pGender, String pBirthplace, String pHometown, ArrayList<String> pStudiedat, ArrayList<String> pWorkedat, ArrayList<String> pMovies, String pGroupCode) {
 		this.setIdentifier(pIdentifier);
 		this.setName(pName);
 		this.setSurname(pSurname);
@@ -24,6 +25,7 @@ public class People {
 		this.setStudiedat(pStudiedat);
 		this.setWorkedat(pWorkedat);
 		this.setMovies(pMovies);
+		this.groupCode = pGroupCode;
 	}
 
 	public String getIdentifier() {
