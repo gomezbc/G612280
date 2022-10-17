@@ -6,19 +6,24 @@ public class main_menu {
 
 	public static void main(String[] args) {
 		network = Network.getNetwork();
-		menu();
-		int selec = selection();
-		switch (selec) {
-		case 1:
-			System.out.println("Loading 'People' into the network...");
-			network.loadFromFile("peopleG612280.txt");
-			break;
-		case 2:
-			System.out.println("peopleG612280.txt");
-			break;
-		case 3:
-			System.out.println("Printing out people...");
-			break;
+		int selec = -1;
+		while(selec != 0){
+			menu();
+			selec = selection();
+			switch (selec) {
+			case 1:
+				System.out.println("Loading 'People' into the network...");
+				network.loadFromFile("peopleG612280.txt");
+				System.out.println("Loaded!");
+				break;
+			case 2:
+				System.out.println("peopleG612280.txt");
+				break;
+			case 3:
+				System.out.println("Printing out people...");
+				network.printToFile("printPeopleG612280.txt");
+				break;
+			}
 		}
 
 

@@ -61,6 +61,20 @@ public class Network {
 		}
 	}
 
+	public void printToFile(String fileName) {
+		String write2file = "G612280/src/data/"+fileName;
+		File wrname = new File (write2file);
+		try {
+			PrintWriter wrfile = new PrintWriter (wrname);
+			for (People p : people) {
+				wrfile.println(p.toString());
+			}
+			wrfile.close();
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		}
+	}
+
 	public void loadFromFileFriends(String fileName) {
 		try{
 			File myfilename = new File("G612280/src/data/"+fileName);
