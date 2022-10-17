@@ -17,11 +17,14 @@ public class main_menu {
 				System.out.println("Loaded!");
 				break;
 			case 2:
-				System.out.println("peopleG612280.txt");
+				System.out.println("Loading 'Friends' into the network...");
+				loadFromFileFriends("friendsG612280.txt");
+				System.out.println("Loaded!");
 				break;
 			case 3:
 				System.out.println("Printing out people...");
 				network.printToFile("printPeopleG612280.txt");
+				System.out.println("Printed!");
 				break;
 			}
 		}

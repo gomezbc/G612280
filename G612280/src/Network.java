@@ -80,18 +80,23 @@ public class Network {
 			File myfilename = new File("G612280/src/data/"+fileName);
 			Scanner input2program = new Scanner (myfilename);
 			input2program.nextLine();
-			while ( input2program.hasNextLine() ){
+			while (input2program.hasNextLine()){
 				String[] line = input2program.nextLine().split(",");
-				String pIdentifier = line[0];
-				String pName = line[1];
+				findById(line[0]).addFriend(findById(line[1]));
+				findById(line[1]).addFriend(findById(line[0]));
 			}
 			input2program.close();
 		}
 		catch ( FileNotFoundException e ) {
 				 e.printStackTrace();
-		
 		}
 	}
 
-	
+	public People findById(String id){
+		for(People p: people){
+			if(p.getIdentifier().equals(id)){
+				return p;
+			}
+		}
+	}
 }

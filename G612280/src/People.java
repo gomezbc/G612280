@@ -13,6 +13,8 @@ public class People {
 	private ArrayList<String> workedat;
 	private ArrayList<String> movies;
 	private String groupCode;
+	private ArrayList<People> friends;
+
 	
 	public People(String pIdentifier, String pName, String pSurname, String pBirthday, String pGender, String pBirthplace, String pHometown, ArrayList<String> pStudiedat, ArrayList<String> pWorkedat, ArrayList<String> pMovies, String pGroupCode) {
 		this.identifier = pIdentifier;
@@ -119,5 +121,13 @@ public class People {
 
 	public void setGroupCode(String groupCode) {
 		this.groupCode = groupCode;
+	}
+
+	public String getFriends() {
+		return friends;
+	}
+
+	public void setFriends(String groupCode) {
+		this.friends = friends;
 	}
 }
