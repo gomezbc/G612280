@@ -66,9 +66,9 @@ public class Network {
 		File wrname = new File (write2file);
 		try {
 			PrintWriter wrfile = new PrintWriter (wrname);
-			wrfile.println(mypath);
-			wrfile.println(totalcount);
-			wrfile.println(totaltime);
+			for (People p : people) {
+				wrfile.println(p.toString());
+			}
 			wrfile.close();
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
