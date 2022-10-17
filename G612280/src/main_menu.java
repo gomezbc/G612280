@@ -14,8 +14,7 @@ public class main_menu {
 			network.loadFromFile("peopleG612280.txt");
 			break;
 		case 2:
-			System.out.println("Loading 'relationships'...");
-			network.loadFromFileFriends("friendsG612280.txt");
+			System.out.println("peopleG612280.txt");
 			break;
 		case 3:
 			System.out.println("Printing out people...");
@@ -27,7 +26,7 @@ public class main_menu {
 	}
 
 	private static void menu() {
-		System.out.println("1. Load 'people' into the network\n2. Load 'relationships'\n3. Print out people");
+		System.out.println("1. Load 'people' into the network\n2. Load 'relationships'\n3. Print out people\n0. Exit");
 	}
 
 	private static int selection(){

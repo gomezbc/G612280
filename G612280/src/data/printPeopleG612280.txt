@@ -1,0 +1,6 @@
+Identifier: Juan32 Name: Juan32 Surname: Matías Birthdate: 23-05-1990Group Code: G612280
+Identifier: Paco44 Name: Paco44 Surname: Quintana Birthdate: 27-11-1973Group Code: G612280
+Identifier: Unai56 Name: Unai56 Surname: Pérez Birthdate: 15-06-1992Group Code: G612280
+Identifier: Borja64 Name: Borja64 Surname: Gomez Birthdate: 15-04-2001Group Code: G612280
+Identifier: Maite13 Name: Maite13 Surname: Saez Birthdate: 23-02-2000Group Code: G612280
+Identifier: Unax11 Name: Unax11 Surname: Barrutia Birthdate: 12-10-2004Group Code: G612280
