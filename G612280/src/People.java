@@ -28,6 +28,7 @@ public class People {
 		this.workedat = pWorkedat;
 		this.movies = pMovies;
 		this.groupCode = pGroupCode;
+		this.friends = new ArrayList<People>();
 	}
 
 	@Override
@@ -123,11 +124,15 @@ public class People {
 		this.groupCode = groupCode;
 	}
 
-	public String getFriends() {
+	public ArrayList<People> getFriends() {
 		return friends;
 	}
 
-	public void setFriends(String groupCode) {
-		this.friends = friends;
+	public void setFriends(ArrayList<People> pfriends) {
+	    this.friends = pfriends;
 	}
+
+    public void addFriend(People pFriend) {
+        friends.add(pFriend);
+    }
 }
