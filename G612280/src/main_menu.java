@@ -12,12 +12,14 @@ public class main_menu {
 		case 1:
 			System.out.println("Loading 'People' into the network...");
 			network.loadFromFile("peopleG612280.txt");
+			System.out.println("Loaded!");
 			break;
 		case 2:
 			System.out.println("Loading 'relationships'...");
 			break;
 		case 3:
 			System.out.println("Printing out people...");
+			network.printToFile("printPeopleG612280.txt");
 			break;
 		}
 

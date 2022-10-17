@@ -2,6 +2,7 @@ import java.util.ArrayList;
 import java.util.Scanner;
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.PrintWriter;
 
 public class Network {
 	private static Network network;
@@ -60,5 +61,17 @@ public class Network {
 		}
 	}
 
-	
+	public void printToFile(String fileName) {
+		String write2file = "G612280/src/data/"+fileName;
+		File wrname = new File (write2file);
+		try {
+			PrintWriter wrfile = new PrintWriter (wrname);
+			wrfile.println(mypath);
+			wrfile.println(totalcount);
+			wrfile.println(totaltime);
+			wrfile.close();
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		}
+	}
 }
