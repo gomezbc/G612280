@@ -15,7 +15,7 @@ public class main_menu {
 			System.out.println("Loaded!");
 			break;
 		case 2:
-			System.out.println("Loading 'relationships'...");
+			System.out.println("peopleG612280.txt");
 			break;
 		case 3:
 			System.out.println("Printing out people...");
