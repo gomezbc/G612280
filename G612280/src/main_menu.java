@@ -2,15 +2,17 @@ import java.util.Scanner;
 public class main_menu {
 
 	private static Scanner sc = new Scanner(System.in);
-	private Network network = getNetwork();
+	private static Network network;
 
 	public static void main(String[] args) {
+		network = Network.getNetwork();
 		menu();
 		int selec = selection();
 		switch (selec) {
 		case 1:
 			System.out.println("Loading 'People' into the network...");
-
+			network.loadFromFile("peopleG612280.txt");
+			System.out.println(network);
 			break;
 		case 2:
 			System.out.println("Loading 'relationships'...");

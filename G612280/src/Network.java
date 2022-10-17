@@ -7,12 +7,12 @@ public class Network {
 	private static Network network;
 	private ArrayList<People> people;
 
-	private Network(ArrayList<People> pPeople) {
+	private Network() {
 		people = new ArrayList<People>();
 	}
 
-	public static Network getNetwork(ArrayList<People> pPeople) {
-		if (network == null) network = new Network(pPeople);
+	public static Network getNetwork() {
+		if (network == null) network = new Network();
 		return network;
 	}
 
@@ -22,11 +22,11 @@ public class Network {
 
 	public void loadFromFile(String fileName) {
 		try{
-			File myfilename = new File("//data/"+fileName);
+			File myfilename = new File("C:/Users/borja/git/G612280/G612280/src/data/"+fileName);
 			Scanner input2program = new Scanner (myfilename);
 			input2program.nextLine();
 			while ( input2program.hasNextLine() ){		
-				input2program.useDelimiter("\t");
+				input2program.useDelimiter("");
 				String pIdentifier = input2program.next();
 				String pName = input2program.next();
 				String pSurname = input2program.next();
