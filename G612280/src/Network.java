@@ -23,7 +23,8 @@ public class Network {
 
 	public void loadFromFile(String fileName) {
 		try{
-			File myfilename = new File("G612280/src/data/"+fileName);
+			String read = "G612280/src/data/"+fileName;
+			File myfilename = new File(read);
 			Scanner input2program = new Scanner (myfilename);
 			input2program.nextLine();
 			while ( input2program.hasNextLine() ){
