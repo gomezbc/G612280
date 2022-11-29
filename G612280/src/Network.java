@@ -219,7 +219,7 @@ public class Network {
 	 * Mike222 and Mary123, your task is to retrieve the hometown of Mike222 and
 	 * Mary123 people, and find all people who were born in thosetowns
 	 */
-	public String residential() {
+	public void residential() {
 		String currentDir = System.getProperty("user.dir");
 		String read = currentDir + "/src/data/" + "residential.txt";
 		File myfilename = new File(read);
@@ -228,7 +228,14 @@ public class Network {
 			String id = input2program.nextLine();
 			for(People p:people){
 				if(p.getIdentifier().equals(id)){
-					
+					for(People p:people){
+						if(p.getIdentifier().equals(id)){
+							if(p.getIdentifier().equals(id)){
+						
+						System.out.println("");
+					}					
+				}
+			}					
 				}
 			}
 			
