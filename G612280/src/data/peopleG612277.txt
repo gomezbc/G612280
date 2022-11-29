@@ -1,0 +1,6 @@
+idperson,name,lastname,birthdate,gender,birthplace,home,studiedat,workplaces,films,groupcode
+ada,Adrianna,Muzajlow,29-12-2000,W,Rzeszow,Rzeszow,PRZ,,Megamind,G612277
+damian2137,Damian,Palkuc,21-02-1992,M,Krakow,Rzeszow,PRZ,Kruku,The Good Girl,G612277
+micha,Michal,Gorka,21-03-1993,M,Krakow,San Sebastian,PRZ;EHU,Ukm,Forrest Gump;Shrek,G612277
+klamka,Juan,Kowal,02-02-1989,M,Jaslo,Katy,EHU,Samsung,,G612277
+lysy,Xavier,Kowalski,02-04-1990,M,Krosno,Krosno,UWU,Samsung,Shrek;Spider-Man 2,G612277

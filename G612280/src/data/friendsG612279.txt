@@ -1,0 +1,11 @@
+friend1,friend2
+Oli11,Mar54
+Oli11,Fra33
+Oli11,Migu78
+Oli11,Ana21
+Mar54,Fra33
+Mar54,Migu78
+Mar54,Ana21
+Fra33,Migu78
+Fra33,Ana21
+Migu78,Ana21

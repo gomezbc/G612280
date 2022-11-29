@@ -1,0 +1,11 @@
+friend1,friend2
+ada,damian2137
+ada,micha
+ada,klamka
+ada,lysy
+damian2137,micha
+damian2137,lysy
+damian2137,klamka
+micha,klamka
+micha,lysy
+klamka,lysy

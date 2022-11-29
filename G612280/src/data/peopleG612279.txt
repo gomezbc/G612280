@@ -1,0 +1,6 @@
+idperson,name,lastname,birthdate,gender,birthplace,home,studiedat,workplaces,films,groupcode
+Oli11,Olivia,Penas,06-02-1995,female,Irun,Irun,Donostia;Psicologia,,Robin Hood;Due Date;Sex and the City 2,G612279
+Mar54,Maria,Garcia,05-06-1994,female,Eibar,Donosti,EHU,Computer_Science,Despicable_Me,G612279
+Fra33,Francisco,Zumalakarregui,15-02-1991,male,Errenteria,France,Armentia Ikastola,Chef,Operacion Ogro,G612279
+Migu78,Miguel,Gonzalez,05-11-2000,male,Galdakao,Galdakao,Elesalde,Doctor,The Town;Yogi Bear 3D;Knight and Day,G612279
+Ana21,Ana,Blanco,07-05-1999,female,Vitoria,Vitoria,EHU,Architect,Iron_Man,G612279

@@ -1,0 +1,16 @@
+friend1,friend2
+Fern33,EnaitzG37
+Fern33,Nere65
+Fern33,Ander78
+Fern33,Mariapi09
+Fern33,Paloma12
+EnaitzG37,Nere65
+EnaitzG37,Ander78
+EnaitzG37,Mariapi09
+EnaitzG37,Paloma12
+Nere65,Ander78
+Nere65,Mariapi09
+Nere65,Paloma12
+Ander78,Mariapi09
+Ander78,Paloma12
+Mariapi09,Paloma12

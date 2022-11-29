@@ -1,0 +1,5 @@
+ibai12,Ibai,Perez,3-7-1985,male,Sevilla,Sevilla,Santa Maria;Pablo Olavide,Sevilla;Amsterdam,ET;The Lion King,G27H4
+naroa334,Naroa,Garcia,7-2-1985,female,Gasteiz,Gasteiz,Marianistas;Pablo Olavide,Gasteiz;Sevilla,Titanic,G137
+olaia72,Olaia,Arruabarrena,11-11-1988,female,Gernika,Pamplona,IES Gernika;UPNA,Donosti;Gernika,ET;Jurassic Park,G1
+unai90,Unai,Fernandez,3-7-1990,male,Gasteiz,Pamplona,Olavide;UNAV,Pamplona;Berlin,High School Musical;Shrek,G78L
+benito447,Benito,Diaz,29-12-1988,male,Madrid,Madrid,IES San Isidro;UPM,Madrid,Jurassic Park;Star Wars,G90

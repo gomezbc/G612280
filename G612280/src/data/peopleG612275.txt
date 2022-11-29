@@ -1,0 +1,7 @@
+idperson,name,lastname,birthdate,gender,birthplace,home,studiedat,workplaces,films,groupcode
+EnaitzG37,Enaitz,Garcia,09-04-1997,male,Donostia,Lasarte,Koldo Mitxelena;Deusto,Donostia;Madrid,A Beautiful Mind;American Beauty;Batman,G612275
+Ander78,Ander,Imaz,09-12-1992,male,Madrid,Andoain,La Salle;UPV,Valencia;Barcelona;Donostia,Batman;Beverly Hills Cop;Chicago,G612275
+Fern33,Fernanflo,Lopez,13-01-2001,male,Barcelona,Donostia,La Salle;UB,Zarauz,Chicago;Crash,G612275
+Paloma12,Paloma,Jimenez,21-10-2000,female,Oviedo,Intxaurrondo,Corazon de Maria;La Inmaculada,Oviedo;Donostia,Avatar;Crash;The Departed,G612275
+Mariapi09,Maria Pilar,Smith,23-02-1980,female,London,Donostia,La Inmaculada;EHU;UC3M,New York;Silicon Valley,Avatar;Titanic;The Departed,G612275
+Nere65,Nerea,Otegi,11-11-1991,female,Azkoitia,Azkoitia,Azkoitiko ikastola;EHU,Azpeitia,Crash;The Lion King;Titanic,G612275
