@@ -15,7 +15,7 @@ public class main_menu {
 		int selec = -1;
 		while (selec != 0) {
 			System.out.println(
-					"1. Load 'people' into the network\n2. Load 'friends' into the network\n3. Print out people\n0. Exit");
+					"1. Load 'people' into the network\n2. Load 'friends' into the network\n3. Print out people\n4.Find friends by surname\n5.Find people by city\n6.Find people by born date sorted by its atribute\n10.Load all pruebas\n0. Exit");
 			selec = selection();
 			switch (selec) {
 				case 1:
@@ -38,7 +38,7 @@ public class main_menu {
 					break;
 
 				case 4:
-					System.out.println("Fiend friends");
+					System.out.println("Find friends");
 					network.loadFromFile("peopleG612280.txt");
 					network.loadFromFileFriends("friendsG612280.txt");
 					network.findFriends("Saez");
@@ -55,6 +55,20 @@ public class main_menu {
 					System.out.println("Retrive by born dates");
 					network.retriveByBorndDates("23-05-1990", "15-04-2001");
 					System.out.println("Printed!");
+					break;
+
+				case 10:
+					System.out.println("Loading all pruebas");
+					network.loadFromFile("peopleG612280.txt");
+					network.loadFromFileFriends("friendsG612280.txt");
+					network.loadFromFile("peopleG612279.txt");
+					network.loadFromFileFriends("friendsG612279.txt");
+					network.loadFromFile("peopleG612278.txt");
+					network.loadFromFileFriends("friendsG612278.txt");
+					network.loadFromFile("peopleG612277.txt");
+					network.loadFromFileFriends("friendsG612277.txt");
+					network.loadFromFile("peopleG612275.txt");
+					network.loadFromFileFriends("friendsG612275.txt");
 					break;
 
 				case 0:

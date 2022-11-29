@@ -187,12 +187,18 @@ public class Network {
 				pArray.add(p);
 			}
 		}
-		// sort by lexicographic order of the strings used for the attributes
-
 		Collections.sort(pArray, new Comparator<People>() {
 			@Override
 			public int compare(People p1, People p2) {
-				return p1.getBirthdate().compareTo(p2.getBirthdate());
+				if(p1.getBirthdate().compareTo(p2.getBirthdate())==0){
+					if(p1.getSurname().compareTo(p2.getSurname())==0){
+						return p1.getName().compareTo(p2.getName());
+					}else {
+						return p1.getSurname().compareTo(p2.getSurname());
+					}
+				}else{
+					return p1.getBirthdate().compareTo(p2.getBirthdate());
+				}
 			}
 		});
 		for (People p : pArray) {
@@ -213,15 +219,19 @@ public class Network {
 	 * Mike222 and Mary123, your task is to retrieve the hometown of Mike222 and
 	 * Mary123 people, and find all people who were born in thosetowns
 	 */
-	public void residential() {
+	public String residential() {
 		String currentDir = System.getProperty("user.dir");
 		String read = currentDir + "/src/data/" + "residential.txt";
 		File myfilename = new File(read);
 		Scanner input2program = new Scanner(myfilename);
-		input2program.nextLine();
 		while (input2program.hasNextLine()) {
-
+			String id = input2program.nextLine();
+			for(People p:people){
+				if(p.getIdentifier().equals(id)){
+					
+				}
+			}
+			
 		}
 	}
-
 }
