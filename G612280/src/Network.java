@@ -34,18 +34,18 @@ public class Network {
 	}
 
 	/**
-	 * add a person to the network
-	 * @param pIdentifier
-	 * @param pName
-	 * @param pSurname
-	 * @param pBirthday
-	 * @param pGender
-	 * @param pBirthplace
-	 * @param pHometown
-	 * @param pStudiedat
-	 * @param pWorkedat
-	 * @param pMovies
-	 * @param pGroupCode
+	 * Method that add a person to the network
+	 * @param pIdentifier Identifier of the person
+	 * @param pName Name of the person
+	 * @param pSurname Surname of the person
+	 * @param pBirthday Birthday of the person
+	 * @param pGender Gender of the person
+	 * @param pBirthplace Birthplace of the person
+	 * @param pHometown Hometown of the person
+	 * @param pStudiedat Where has the person studied
+	 * @param pWorkedat Where has the person worked
+	 * @param pMovies Favorites movies of the person
+	 * @param pGroupCode Code of the group
 	 */
 	public void addToNetwork(String pIdentifier, String pName, String pSurname, String pBirthday, String pGender,
 			String pBirthplace, String pHometown, ArrayList<String> pStudiedat, ArrayList<String> pWorkedat,
