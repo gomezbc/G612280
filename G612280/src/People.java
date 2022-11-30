@@ -2,7 +2,7 @@ import java.util.ArrayList;
 
 /**
  * Class that represents People.
- *
+ * @author Erik, Borja and Pablo
  */
 public class People {
 
@@ -22,8 +22,18 @@ public class People {
 	private ArrayList<People> friends;
 
 	/**
-	 * Method constructor of People which has as parameter all the caracteristics
-	 * required.
+	 * Method constructor of People which has as parameter all the parameters required.
+	 * @param pIdentifier Identifier of the person
+     * @param pName Name of the person
+     * @param pSurname Surname of the person
+     * @param pBirthday Birthday of the person
+     * @param pGender Gender of the person
+     * @param pBirthplace Birthplace of the person
+     * @param pHometown Hometown of the person
+     * @param pStudiedat Where has the person studied
+     * @param pWorkedat Where has the person worked
+     * @param pMovies Favorites movies of the person
+     * @param pGroupCode Code of the group
 	 */
 	public People(String pIdentifier, String pName, String pSurname, String pBirthday, String pGender,
 			String pBirthplace, String pHometown, ArrayList<String> pStudiedat, ArrayList<String> pWorkedat,
@@ -209,7 +219,7 @@ public class People {
 	 * Changes the method-calling people Studiedat ArrayList to the one given from
 	 * parameter.
 	 * 
-	 * @param Studiedat the Studiedat ArrayList of the method-calling people to set.
+	 * @param studiedat the Studiedat ArrayList of the method-calling people to set.
 	 */
 
 	public void setStudiedat(ArrayList<String> studiedat) {
@@ -261,7 +271,7 @@ public class People {
 	/**
 	 * Method that returns the GroupCode of the method-calling people.
 	 * 
-	 * @return BroupCode of the person.
+	 * @return GroupCode of the person.
 	 */
 
 	public String getGroupCode() {
@@ -303,7 +313,7 @@ public class People {
 	/**
 	 * Method that adds a person to friends
 	 * 
-	 * @param People pFriend
+	 * @param pFriend person added to friends
 	 */
 
 	public void addFriend(People pFriend) {

@@ -16,7 +16,7 @@ public class main_menu {
 		int selec = -1;
 		while (selec != 0) {
 			System.out.println(
-					"1. Load 'people' into the network\n2. Load 'friends' into the network\n3. Print out people\n4. Find friends by surname\n5. Find people by city\n6. Find people by born date sorted by its atribute\n7. Split people in groups by movies\n10. Load all pruebas\n0. Exit");
+					"1. Load 'people' into the network\n2. Load 'friends' into the network\n3. Print out people\n4. Find friends by surname\n5. Find people by city\n6. Find people by born date sorted by its atribute\n7. Split people in groups by movies\n8. Residential\n9. Load all pruebas\n0. Exit");
 			selec = selection();
 			switch (selec) {
 				case 1:
@@ -105,14 +105,14 @@ public class main_menu {
 	}
 
 	/**
-	 * Method with exceptions of the menu.
+	 * Method to select a method .
 	 * 
-	 * @return A message to rewrite a command.
+	 * @return the selection.
 	 */
 	private static int selection() {
 		System.out.println("Please select an option: ");
 		int selection = sc.nextInt();
-		if (selection < 0 || selection > 10) {
+		if (selection < 0 || selection > 9) {
 			System.out.println("Invalid selection. Please try again.");
 			selection();
 		}

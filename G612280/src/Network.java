@@ -10,6 +10,7 @@ import java.io.PrintWriter;
 /**
  * Class that represent the network and contains all the methods.
  * Contains one ArrayLists, people.
+ * @author Erik, Borja and Pablo
  */
 public class Network {
 
