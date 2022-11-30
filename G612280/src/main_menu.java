@@ -41,7 +41,7 @@ public class main_menu {
 				case 4:
 					System.out.println("Find friends of surname: \n");
 					String inputS = JOptionPane.showInputDialog("Write the surname you want: ");
-					network.findFriends(inputS);
+					network.findFriendsBySurname(inputS);
 					System.out.println("Printed!");
 					break;
 
@@ -83,7 +83,6 @@ public class main_menu {
 					System.out.println("Loading all tests");
 					network.loadFromFile("peopleG612278.txt");
 					network.loadFromFileFriends("friendsG612278.txt");
-
 					network.loadFromFile("peopleG612280.txt");
 					network.loadFromFile("peopleG612279.txt");
 					network.loadFromFileFriends("friendsG612279.txt");
@@ -92,8 +91,8 @@ public class main_menu {
 					network.loadFromFileFriends("friendsG612277.txt");
 					network.loadFromFile("peopleG612275.txt");
 					network.loadFromFileFriends("friendsG612275.txt");
-					//network.loadFromFile("df_people_55.txt");
-                    //network.loadFromFileFriends("de_friends_55L136.txt");
+					network.loadFromFile("df_people_55.txt");
+                    network.loadFromFileFriends("df_friends_55L136.txt");
 					break;
 				
 				case 0:

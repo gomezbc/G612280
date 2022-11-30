@@ -1,3 +1,8 @@
+Identifier: ibai12 Name: Ibai Surname: Perez Birthdate: 3-7-1985 Group Code: G27H4
+Identifier: naroa334 Name: Naroa Surname: Garcia Birthdate: 7-2-1985 Group Code: G137
+Identifier: olaia72 Name: Olaia Surname: Arruabarrena Birthdate: 11-11-1988 Group Code: G1
+Identifier: unai90 Name: Unai Surname: Fernandez Birthdate: 3-7-1990 Group Code: G78L
+Identifier: benito447 Name: Benito Surname: Diaz Birthdate: 29-12-1988 Group Code: G90
 Identifier: Juan32 Name: Juan Surname: Matías Birthdate: 23-05-1990 Group Code: G612280
 Identifier: Paco44 Name: Paco Surname: Quintana Birthdate: 27-11-1973 Group Code: G612280
 Identifier: Unai56 Name: Unai Surname: Pérez Birthdate: 15-06-1992 Group Code: G612280
@@ -20,3 +25,58 @@ Identifier: Fern33 Name: Fernanflo Surname: Lopez Birthdate: 13-01-2001 Group Co
 Identifier: Paloma12 Name: Paloma Surname: Jimenez Birthdate: 21-10-2000 Group Code: G612275
 Identifier: Mariapi09 Name: Maria Pilar Surname: Smith Birthdate: 23-02-1980 Group Code: G612275
 Identifier: Nere65 Name: Nerea Surname: Otegi Birthdate: 11-11-1991 Group Code: G612275
+Identifier: Gonz01 Name: Gonzalo Surname: Gonzalez Birthdate: 12-09-1982 Group Code: G6101
+Identifier: Mik01 Name: Mikel Surname: Dalmau Birthdate: 25-03-1991 Group Code: G6101
+Identifier: Gor01 Name: Gorka Surname: Vitoria Birthdate: 14-02-1988 Group Code: G6101
+Identifier: Eid01 Name: Eider Surname: Iturralde Birthdate: 15-05-1989 Group Code: G6101
+Identifier: Eri01 Name: Erik Surname: Rodrigues Birthdate: 15-04-1991 Group Code: G6101
+Identifier: And01 Name: Ander Surname: Maillo Birthdate: 14-07-1991 Group Code: G6101
+Identifier: Alv01 Name: Alvaro Surname: Calo Birthdate: 20-07-1992 Group Code: G6101
+Identifier: Bea01 Name: Beatriz Surname: Penas Birthdate: 08-01-1992 Group Code: G6101
+Identifier: And02 Name: Andrea Surname: Fernandez Birthdate: 07-02-1991 Group Code: G6101
+Identifier: Cris01 Name: Cristilaine Surname: Rithyele Birthdate: 01-01-1991 Group Code: G6101
+Identifier: Luis01 Name: Luis Surname: Miguel Birthdate: 05-11-1992 Group Code: G6101
+Identifier: Javi Name: Javier Surname: Frias Birthdate: 7-5-1993 Group Code: G6102
+Identifier: Iker Name: Iker Surname: Salmon Birthdate: 19-4-1979 Group Code: G6102
+Identifier: Alejo Name: Mikel Alejo Surname: Barcina Birthdate: 1-1-1994 Group Code: G6102
+Identifier: Igor Name: Igor Surname: Cejudo Birthdate: 23-3-1989 Group Code: G6102
+Identifier: Mike673 Name: Mikel Surname: Garcia Birthdate: 11-8-1980 Group Code: G6103
+Identifier: Jandrol094 Name: Alejandro Surname: Andoain Birthdate: 23-4-1983 Group Code: G6103
+Identifier: Esti374 Name: Estibaliz Surname: Matsuki Birthdate: 12-7-1988 Group Code: G6103
+Identifier: Fran451 Name: Francisco Surname: Zumalakarregui Birthdate: 23-2-1983 Group Code: G6103
+Identifier: ainhize90 Name: Ainhize Surname: Goenaga Birthdate: 8-1-1990 Group Code: G6104
+Identifier: markel94 Name: Markel Surname: Sanz Birthdate: 14-9-1994 Group Code: G6104
+Identifier: igor89 Name: Igor Surname: Cortes Birthdate: 23-3-1989 Group Code: G6104
+Identifier: asdfa59 Name: Asdrubal Surname: Farruquito Birthdate: 8-8-1959 Group Code: G6104
+Identifier: Aitor001 Name: Aitor Surname: Iturrioz Birthdate: 29-06-1988 Group Code: G6105
+Identifier: Markel001 Name: Markel Surname: Saez_de_Jauregui Birthdate: 02-08-1993 Group Code:  G6105
+Identifier: Olatz001 Name: Olatz Surname: Castano Birthdate: 15-11-1994 Group Code: G6105
+Identifier: Markel002 Name: Markel Surname: Chen Birthdate: 01-01-1990 Group Code: G6105
+Identifier: Maria001 Name: Maria Surname: Garcia Birthdate: 05-06-1994 Group Code: G6105
+Identifier: Carla001 Name: Carla Surname: Aldabaldetrecu Birthdate: 4-11-1994 Group Code: G6106
+Identifier: Laura001 Name: Laura Surname: Gran Birthdate: 19-6-1994 Group Code: G6106
+Identifier: Olivia002 Name: Olivia Surname: Olazabal Birthdate: 28-3-1994 Group Code: G6106
+Identifier: Leire002 Name: Leire Surname: Roa Birthdate: 7-2-1993 Group Code: G6106
+Identifier: Marta059 Name: Marta Surname: Garcia Birthdate: 8-5-1994 Group Code: G6106
+Identifier: jon89 Name: Jon Surname: Garrido Birthdate: 2-2-1989 Group Code: G6107
+Identifier: guilherme85 Name: Guilherme Surname: Bussi Birthdate: 26-11-1985 Group Code: G6107
+Identifier: mircea92 Name: Mircea Surname: Dumitru Birthdate: 30-10-1992 Group Code: G6107
+Identifier: paquito78 Name: Paquito Surname: Sanz Birthdate: 25-12-1978 Group Code: G6107
+Identifier: CRI57 Name: CRISTI Surname: PARADOWSKI Birthdate: 2-7-1903 Group Code: G0000
+Identifier: HER20 Name: HERMAN Surname: SMITHWICK Birthdate: 15-9-1919 Group Code: G0000
+Identifier: OSV49 Name: OSVALDO Surname: BRISTER Birthdate: 9-7-1949 Group Code: G0000
+Identifier: CHA29 Name: CHAU Surname: COLVARD Birthdate: 21-4-1948 Group Code: G0000
+Identifier: ETH28 Name: ETHAN Surname: VIOREL Birthdate: 18-4-1979 Group Code: G0000
+Identifier: RAM35 Name: RAMIRO Surname: LAVALLIE Birthdate: 7-1-1999 Group Code: G0000
+Identifier: Jon232 Name: Jon Surname: Garcia Birthdate: 3-3-1990 Group Code: G0001
+Identifier: Mikel34 Name: Jon Mikel Surname: Lopez de Haro Birthdate: 9-9-1700 Group Code: G0001
+Identifier: Xabi112 Name: Xabier Surname: Lete Birthdate: 1-1-1901 Group Code: G0001
+Identifier: Roberto22 Name: Roberto Surname: Egia Birthdate: 4-4-1933 Group Code: G0001
+Identifier: Miriam21 Name: Miriam Cristina Surname: de la Sierra Birthdate: 2-2-1982 Group Code: G0001
+Identifier: Leire1 Name: Leire Surname: Alba-Aguirre Birthdate: 5-5-1955 Group Code: G0001
+Identifier: Bizenta223 Name: Bizenta Surname: Juaristi Birthdate: 1-1-1501 Group Code: G0001
+Identifier: John111 Name: John Surname: Obamy Birthdate: 6-6-1966 Group Code: G0001
+Identifier: Arantza22 Name: Aranzazu Surname: Bidaurreta Birthdate: 3-3-1833 Group Code: G0001
+Identifier: Liza99 Name: Elizabeth Surname: Taylor-Gardner Birthdate: 5-5-1935 Group Code: G0001
+Identifier: Agnetta33 Name: Agnetta Surname: Bensson Birthdate: 1-1-1940 Group Code: G0001
+Identifier: Gisella11 Name: Gisella Surname: Fabricci Birthdate: 3-3-1993 Group Code: G0001
