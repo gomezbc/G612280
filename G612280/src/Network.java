@@ -192,9 +192,13 @@ public class Network {
 		    String pD1 = d1.substring(6, 10);
 	        String pD2 = d2.substring(6, 10);
 	        for (People p : people) {
-	            String pD = p.getBirthdate().substring(6, 10);
-	            if (pD.compareTo(pD1) >= 0 && pD.compareTo(pD2) <= 0) {
-	                pArray.add(p);
+	            try {
+	                String pD = p.getBirthdate().substring(6, 10);
+	                if (pD.compareTo(pD1) >= 0 && pD.compareTo(pD2) <= 0) {
+	                    pArray.add(p);
+	                }
+	            }catch(IndexOutOfBoundsException e) {
+	                System.out.println(p.getIdentifier()+" bithdate has an incorrect format");
 	            }
 	        }
 	        System.out.println("");
@@ -216,8 +220,8 @@ public class Network {
 	        });
 	        for (People p : pArray) {
 	            System.out.println(p.toString());
-	        }
-		}catch(Exception e) {
+	        }  
+		}catch(Exception e1) {
 		    System.out.println("Dates are incorrect!");
 		}
 	}
