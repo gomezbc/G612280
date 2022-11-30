@@ -1,6 +1,6 @@
 idperson,name,lastname,birthdate,gender,birthplace,home,studiedat,workplaces,films,groupcode
 Juan32,Juan,Matías,23-05-1990,male,Donostia,Donostia;Barcelona,EPI,MCdonalds,Cars;Cars3,G612280
-Paco44,Paco,Quintana,27-11-1973,male,Galdako,Bilbao,UPV,Tokyo,Men in Black,G612280
+Paco44,Paco,Quintana,27-11-1973,male,Galdako,Bilbao,UPV,Tokyo,Cars;Cars3,G612280
 Unai56,Unai,Pérez,15-06-1992,male,Bilbao,Bilbao,Donostia;Vitoria-Gasteiz,Madrid,Shrek,G612280
 Borja64,Borja,Gomez,15-04-2001,male,Vitoria,Donostia,Vitoria;EHU,Pakos,Spider-Man;Spider-Man 2;Spider-Man 3,G612280
 Maite13,Maite,Saez,23-02-2000,female,Bilbao,Barakaldo,Barakaldo,Iberdrola,Gods and Monsters,G612280

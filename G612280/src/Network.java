@@ -181,23 +181,27 @@ public class Network {
 	public void retriveByBorndDates(String d1, String d2) {
 		ArrayList<People> pArray = new ArrayList<People>();
 		for (People p : people) {
-			String pD = p.getBirthdate().substring(5, 9);
-			if (pD.compareTo(d1) >= 0 && pD.compareTo(d2) <= 0) {
-				System.out.println(p.toString());
+			String pD = p.getBirthdate().substring(6, 10);
+			String pD1 = d1.substring(6, 10);
+			String pD2 = d2.substring(6, 10);
+			if (pD.compareTo(pD1) >= 0 && pD.compareTo(pD2) <= 0) {
 				pArray.add(p);
 			}
 		}
+		System.out.println("");
 		Collections.sort(pArray, new Comparator<People>() {
 			@Override
 			public int compare(People p1, People p2) {
-				if(p1.getBirthdate().compareTo(p2.getBirthdate())==0){
+			    String pD1 = p1.getBirthdate().substring(6, 10);
+			    String pD2 = p2.getBirthdate().substring(6, 10);
+				if(pD1.compareTo(pD2)==0){
 					if(p1.getSurname().compareTo(p2.getSurname())==0){
 						return p1.getName().compareTo(p2.getName());
 					}else {
 						return p1.getSurname().compareTo(p2.getSurname());
 					}
 				}else{
-					return p1.getBirthdate().compareTo(p2.getBirthdate());
+					return pD1.compareTo(pD2);
 				}
 			}
 		});
@@ -219,6 +223,7 @@ public class Network {
 	 * Mike222 and Mary123, your task is to retrieve the hometown of Mike222 and
 	 * Mary123 people, and find all people who were born in thosetowns
 	 */
+	/*
 	public void residential() {
 		String currentDir = System.getProperty("user.dir");
 		String read = currentDir + "/src/data/" + "residential.txt";
@@ -240,5 +245,31 @@ public class Network {
 			}
 			
 		}
+		
+	}*/
+	
+	/**
+	 * Method that splits all the people in the network into groups with the same films
+	 * @return  arraylist of groups(arraylist of people)
+	 */
+	public ArrayList<ArrayList<People>> splitInGroups(){
+	    ArrayList<ArrayList<People>> ret = new ArrayList<ArrayList<People>>();
+	    Boolean b = false;
+	    for(People p: people) {
+	        b = false;
+	        for(ArrayList<People> pA: ret) {
+	            if(p.getMovies().equals(pA.get(0).getMovies())) {
+	                pA.add(p);
+	                b = true;
+	            }
+	        }
+	        if(!b) {
+	            ArrayList<People> aux = new ArrayList<People>();
+                aux.add(p);
+                ret.add(aux);
+	        }
+	    }
+	    return ret;  
 	}
+	 
 }

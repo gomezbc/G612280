@@ -52,7 +52,7 @@ public class People {
 	@Override
 	public String toString() {
 		return "Identifier: " + this.identifier + " Name: " + this.name + " Surname: " + this.surname + " Birthdate: "
-				+ this.birthdate + "Group Code: " + this.groupCode;
+				+ this.birthdate + " Group Code: " + this.groupCode;
 	}
 
 	/**
