@@ -84,7 +84,7 @@ public class main_menu {
 					network.loadFromFile("peopleG612278.txt");
 					network.loadFromFileFriends("friendsG612278.txt");
 
-					network.loadFromFile("peopleG612280.txt");
+					//network.loadFromFile("peopleG612280.txt");
 					network.loadFromFile("peopleG612279.txt");
 					network.loadFromFileFriends("friendsG612279.txt");
 					network.loadFromFileFriends("friendsG612280.txt");
@@ -92,8 +92,8 @@ public class main_menu {
 					network.loadFromFileFriends("friendsG612277.txt");
 					network.loadFromFile("peopleG612275.txt");
 					network.loadFromFileFriends("friendsG612275.txt");
-					//network.loadFromFile("df_people_55.txt");
-                    //network.loadFromFileFriends("de_friends_55L136.txt");
+					network.loadFromFile("df_people_55.txt");
+                    network.loadFromFileFriends("de_friends_55L136.txt");
 					break;
 				
 				case 0:
