@@ -261,6 +261,7 @@ public class Network {
 	            if(p.getMovies().equals(pA.get(0).getMovies())) {
 	                pA.add(p);
 	                b = true;
+	                break;
 	            }
 	        }
 	        if(!b) {
