@@ -24,8 +24,8 @@ public class Network {
 	}
 
 	/**
-	 * implementation of the singleton pattern
-	 * @return
+	 * Implementation of the singleton pattern
+	 * @return network object
 	 */
 	public static Network getNetwork() {
 		if (network == null)
@@ -57,7 +57,7 @@ public class Network {
 	/**
 	 * Method that loads from the file all the people given as example.
 	 * 
-	 * @param String fileName.
+	 * @param fileName name of the file we want to do the import from.
 	 */
 
 	public void loadFromFile(String fileName) {
@@ -108,9 +108,9 @@ public class Network {
 	}
 
 	/**
-	 * Method that prints on the file the people.
+	 * Method that prints on a file the people.
 	 * 
-	 * @param String fileName.
+	 * @param fileName name of the file where we want to print the people.
 	 */
 
 	public void printToFile(String fileName) {
@@ -129,9 +129,9 @@ public class Network {
 	}
 
 	/**
-	 * Method that loads from the file all the people given as example.
+	 * Method that loads from a file all the people given as example.
 	 * 
-	 * @param String fileName.
+     * @param fileName name of the file we want to do the import from.
 	 */
 
 	public void loadFromFileFriends(String fileName) {
@@ -158,8 +158,8 @@ public class Network {
 
 	/**
 	 * Method that search a person by id.
-	 * 
-	 * @param String id.
+	 * @param id Identifier of the people we want to find.
+	 * @return person with that id.
 	 */
 
 	public People findById(String id) {
@@ -172,8 +172,8 @@ public class Network {
 	}
 
 	/**
-	 * method thtat print people with the hometown pCity
-	 * @param pCity
+	 * Method that prints people from the hometown given by parameter pCity
+	 * @param pCity name of the city
 	 */
 	public void printPeopleByCity(String pCity) {
 	    System.out.println("People in "+pCity+": ");
@@ -186,8 +186,8 @@ public class Network {
 	}
 
 	/**
-	 * method thtat prints the friends of a person
-	 * @param surname
+	 * Method that prints the friends of a person by he/she surname
+	 * @param surname surname of the person
 	 */
 	public void findFriendsBySurname(String surname) {
 		for (People p : people) {
@@ -201,6 +201,11 @@ public class Network {
 
 	}
 
+	/**
+	 * Method that collects people born between two dates, and sorts them by borndate,surname and name
+	 * @param d1 first date
+	 * @param d2 second date (higher than d1)
+	 */
 	public void retriveByBorndDates(String d1, String d2) {
 		ArrayList<People> pArray = new ArrayList<People>();
 		try {
@@ -242,9 +247,7 @@ public class Network {
 	}
 
 	/**
-	 * print the name, surname, birthdate and place of study 
-	 * of the people whose birthplace is the same hometown of the different
-	 * people in residential.txt
+	 * Method that prints the name, surname, birthdate and place of study of the people whose birthplace is the same hometown of the different people in residential.txt
 	 */
 	public void residential() {
 		String currentDir = System.getProperty("user.dir");
