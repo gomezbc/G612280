@@ -142,8 +142,13 @@ public class Network {
 			input2program.nextLine();
 			while (input2program.hasNextLine()) {
 				String[] line = input2program.nextLine().split(",");
-				findById(line[0]).addFriend(findById(line[1]));
-				findById(line[1]).addFriend(findById(line[0]));
+				try {
+				    findById(line[0]).addFriend(findById(line[1]));
+	                findById(line[1]).addFriend(findById(line[0]));
+				}catch(Exception e) {
+				    System.out.println("The id is incorrect!");
+				}
+			
 			}
 			input2program.close();
 		} catch (FileNotFoundException e) {
@@ -171,6 +176,7 @@ public class Network {
 	 * @param pCity
 	 */
 	public void printPeopleByCity(String pCity) {
+	    System.out.println("People in "+pCity+": ");
 		for (People p : people) {
 			if (p.getHometown().equals(pCity)) {
 				System.out.println(p.getIdentifier() + " " + p.getSurname());
@@ -181,11 +187,12 @@ public class Network {
 
 	/**
 	 * method thtat prints the friends of a person
-	 * @param name
+	 * @param surname
 	 */
-	public void findFriends(String name) {
+	public void findFriendsBySurname(String surname) {
 		for (People p : people) {
-			if (p.getSurname().equals(name)) {
+			if (p.getSurname().equals(surname)) {
+			    System.out.println("Friends of "+p.toString()+"\n");
 				for (People f : p.getFriends()) {
 					System.out.println(f.toString());
 				}
@@ -196,33 +203,37 @@ public class Network {
 
 	public void retriveByBorndDates(String d1, String d2) {
 		ArrayList<People> pArray = new ArrayList<People>();
-		for (People p : people) {
-			String pD = p.getBirthdate().substring(6, 10);
-			String pD1 = d1.substring(6, 10);
-			String pD2 = d2.substring(6, 10);
-			if (pD.compareTo(pD1) >= 0 && pD.compareTo(pD2) <= 0) {
-				pArray.add(p);
-			}
-		}
-		System.out.println("");
-		Collections.sort(pArray, new Comparator<People>() {
-			@Override
-			public int compare(People p1, People p2) {
-			    String pD1 = p1.getBirthdate().substring(6, 10);
-			    String pD2 = p2.getBirthdate().substring(6, 10);
-				if(pD1.compareTo(pD2)==0){
-					if(p1.getSurname().compareTo(p2.getSurname())==0){
-						return p1.getName().compareTo(p2.getName());
-					}else {
-						return p1.getSurname().compareTo(p2.getSurname());
-					}
-				}else{
-					return pD1.compareTo(pD2);
-				}
-			}
-		});
-		for (People p : pArray) {
-			System.out.println(p.toString());
+		try {
+		    String pD1 = d1.substring(6, 10);
+	        String pD2 = d2.substring(6, 10);
+	        for (People p : people) {
+	            String pD = p.getBirthdate().substring(6, 10);
+	            if (pD.compareTo(pD1) >= 0 && pD.compareTo(pD2) <= 0) {
+	                pArray.add(p);
+	            }
+	        }
+	        System.out.println("");
+	        Collections.sort(pArray, new Comparator<People>() {
+	            @Override
+	            public int compare(People p1, People p2) {
+	                String pD1 = p1.getBirthdate().substring(6, 10);
+	                String pD2 = p2.getBirthdate().substring(6, 10);
+	                if(pD1.compareTo(pD2)==0){
+	                    if(p1.getSurname().compareTo(p2.getSurname())==0){
+	                        return p1.getName().compareTo(p2.getName());
+	                    }else {
+	                        return p1.getSurname().compareTo(p2.getSurname());
+	                    }
+	                }else{
+	                    return pD1.compareTo(pD2);
+	                }
+	            }
+	        });
+	        for (People p : pArray) {
+	            System.out.println(p.toString());
+	        }
+		}catch(Exception e) {
+		    System.out.println("Dates are incorrect!");
 		}
 	}
 
