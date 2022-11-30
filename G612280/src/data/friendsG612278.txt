@@ -1,3 +1,4 @@
+friend1,friend2
 ibai12,naroa334
 ibai12,olaia72
 ibai12,unai90
