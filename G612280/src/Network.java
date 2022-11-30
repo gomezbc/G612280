@@ -34,9 +34,18 @@ public class Network {
 	}
 
 	/**
-	 * Method that adds a new person to the network.
-	 * 
-	 * @param all the attributes of people.
+	 * add a person to the network
+	 * @param pIdentifier
+	 * @param pName
+	 * @param pSurname
+	 * @param pBirthday
+	 * @param pGender
+	 * @param pBirthplace
+	 * @param pHometown
+	 * @param pStudiedat
+	 * @param pWorkedat
+	 * @param pMovies
+	 * @param pGroupCode
 	 */
 	public void addToNetwork(String pIdentifier, String pName, String pSurname, String pBirthday, String pGender,
 			String pBirthplace, String pHometown, ArrayList<String> pStudiedat, ArrayList<String> pWorkedat,
@@ -57,9 +66,13 @@ public class Network {
 			String read = currentDir + "/src/data/" + fileName;
 			File myfilename = new File(read);
 			Scanner input2program = new Scanner(myfilename);
-			input2program.nextLine();
+			if(input2program.hasNextLine())input2program.nextLine();
 			while (input2program.hasNextLine()) {
 				String[] line = input2program.nextLine().split(",");
+				if(line.length!=11){
+					System.out.println("Missing arguments. Aborting");
+				}
+				else{
 				String pIdentifier = line[0];
 				String pName = line[1];
 				String pSurname = line[2];
@@ -85,8 +98,10 @@ public class Network {
 				String pGroupCode = line[10];
 				addToNetwork(pIdentifier, pName, pSurname, pBirthday, pGender, pBirthplace, pHometown, pStudiedat,
 						pWorkedat, pMovies, pGroupCode);
-			}
-			input2program.close();
+			
+					}
+				}
+					input2program.close();
 		} catch (FileNotFoundException e) {
 			System.out.println("File not found");
 		}
