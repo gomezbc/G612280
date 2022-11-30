@@ -54,8 +54,8 @@ public class main_menu {
 
 				case 6:
 					System.out.println("Retrive by born dates: ");
-					String inputD1 = JOptionPane.showInputDialog("Write the first date (xx-xx-xxxx): ");
-					String inputD2 = JOptionPane.showInputDialog("Write the second date (xx-xx-xxxx): ");
+					String inputD1 = JOptionPane.showInputDialog("Write the first date (dd-mm-yyyy): ");
+					String inputD2 = JOptionPane.showInputDialog("Write the second date (dd-mm-yyyy): ");
 					network.retriveByBorndDates(inputD1, inputD2);
 					System.out.println("Printed!");
 					break;
@@ -74,14 +74,20 @@ public class main_menu {
 				    }
 				    break;
 
+				case 8:
+					System.out.println("Residential");
+					network.residential();
+					break;
+
 				case 10:
-					System.out.println("Loading all pruebas");
+					System.out.println("Loading all tests");
+					network.loadFromFile("peopleG612278.txt");
+					network.loadFromFileFriends("friendsG612278.txt");
+
 					network.loadFromFile("peopleG612280.txt");
-					network.loadFromFileFriends("friendsG612280.txt");
 					network.loadFromFile("peopleG612279.txt");
 					network.loadFromFileFriends("friendsG612279.txt");
-					//network.loadFromFile("peopleG612278.txt");
-					//network.loadFromFileFriends("friendsG612278.txt");
+					network.loadFromFileFriends("friendsG612280.txt");
 					network.loadFromFile("peopleG612277.txt");
 					network.loadFromFileFriends("friendsG612277.txt");
 					network.loadFromFile("peopleG612275.txt");
@@ -89,7 +95,7 @@ public class main_menu {
 					//network.loadFromFile("df_people_55.txt");
                     //network.loadFromFileFriends("de_friends_55L136.txt");
 					break;
-
+				
 				case 0:
 					System.out.println("Goodbye!");
 					break;

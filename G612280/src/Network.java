@@ -13,8 +13,6 @@ import java.io.PrintWriter;
  */
 public class Network {
 
-	// Attributes
-
 	private static Network network;
 	private ArrayList<People> people;
 
@@ -25,8 +23,10 @@ public class Network {
 		people = new ArrayList<People>();
 	}
 
-	// Getter
-
+	/**
+	 * implementation of the singleton pattern
+	 * @return
+	 */
 	public static Network getNetwork() {
 		if (network == null)
 			network = new Network();
@@ -88,8 +88,7 @@ public class Network {
 			}
 			input2program.close();
 		} catch (FileNotFoundException e) {
-			e.printStackTrace();
-
+			System.out.println("File not found");
 		}
 	}
 
@@ -138,7 +137,7 @@ public class Network {
 	}
 
 	/**
-	 * Method that search a person comparing the id.
+	 * Method that search a person by id.
 	 * 
 	 * @param String id.
 	 */
@@ -152,12 +151,10 @@ public class Network {
 		return null;
 	}
 
-	public People findBySurname(String surname) {
-		People[] pArray;
-
-		return null;
-	}
-
+	/**
+	 * method thtat print people with the hometown pCity
+	 * @param pCity
+	 */
 	public void printPeopleByCity(String pCity) {
 		for (People p : people) {
 			if (p.getHometown().equals(pCity)) {
@@ -167,6 +164,10 @@ public class Network {
 
 	}
 
+	/**
+	 * method thtat prints the friends of a person
+	 * @param name
+	 */
 	public void findFriends(String name) {
 		for (People p : people) {
 			if (p.getSurname().equals(name)) {
@@ -210,43 +211,33 @@ public class Network {
 		}
 	}
 
-	/*
-	 * 9. Given a set of identifiers in a file named residential.txt, recover the
-	 * values of the
-	 * attributes name, surname, birthplace and studiedat of the people on the
-	 * network
-	 * whose birthplace matches the hometown of the people who are described in
-	 * residential.txt. People whose birthplace/hometown is unknown do not affect
-	 * the
-	 * result of this operation. For example, if the file residential.txt contains
-	 * the identifiers
-	 * Mike222 and Mary123, your task is to retrieve the hometown of Mike222 and
-	 * Mary123 people, and find all people who were born in thosetowns
+	/**
+	 * print the name, surname, birthdate and place of study 
+	 * of the people whose birthplace is the same hometown of the different
+	 * people in residential.txt
 	 */
-	/*
 	public void residential() {
 		String currentDir = System.getProperty("user.dir");
 		String read = currentDir + "/src/data/" + "residential.txt";
 		File myfilename = new File(read);
-		Scanner input2program = new Scanner(myfilename);
-		while (input2program.hasNextLine()) {
-			String id = input2program.nextLine();
-			for(People p:people){
-				if(p.getIdentifier().equals(id)){
-					for(People p:people){
-						if(p.getIdentifier().equals(id)){
-							if(p.getIdentifier().equals(id)){
-						
-						System.out.println("");
-					}					
-				}
-			}					
+		try (Scanner input2program = new Scanner(myfilename)) {
+			while (input2program.hasNextLine()) {
+				String id = input2program.nextLine();
+				for(People p:people){
+					if(p.getHometown()!=null && p.getIdentifier().equals(id)){
+						for(People q:people){
+							if(p.getHometown().equals(q.getBirthplace())){							
+									System.out.println(q.getName() + " " + q.getSurname() + " " + q.getBirthdate() + " " + q.getStudiedat());					
+							}
+						}
+					}
 				}
 			}
-			
+		} catch (FileNotFoundException e) {
+			System.out.println("File not found");
 		}
 		
-	}*/
+	}
 	
 	/**
 	 * Method that splits all the people in the network into groups with the same films
