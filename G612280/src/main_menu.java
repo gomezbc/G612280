@@ -79,7 +79,7 @@ public class main_menu {
 					network.residential();
 					break;
 
-				case 10:
+				case 9:
 					System.out.println("Loading all tests");
 					network.loadFromFile("peopleG612278.txt");
 					network.loadFromFileFriends("friendsG612278.txt");
