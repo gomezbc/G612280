@@ -16,7 +16,7 @@ public class main_menu {
 		int selec = -1;
 		while (selec != 0) {
 			System.out.println(
-					"1. Load 'people' into the network\n2. Load 'friends' into the network\n3. Print out people\n4. Find friends by surname\n5. Find people by city\n6. Find people by born date sorted by its atribute\n7. Split people in groups by movies\n8. Residential\n9. Load all pruebas\n0. Exit");
+					"1. Load 'people' into the network\n2. Load 'friends' into the network\n3. Print out people\n4. Find friends by surname\n5. Find people by city\n6. Find people by born date sorted by its atribute\n7. Split people in groups by movies\n8. Residential\n9. Load all files\n0. Exit");
 			selec = selection();
 			switch (selec) {
 				case 1:
@@ -80,7 +80,7 @@ public class main_menu {
 					break;
 
 				case 9:
-					System.out.println("Loading all tests");
+					System.out.println("Loading all files");
 					network.loadFromFile("peopleG612278.txt");
 					network.loadFromFileFriends("friendsG612278.txt");
 					network.loadFromFile("peopleG612280.txt");
