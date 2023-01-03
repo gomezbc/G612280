@@ -147,7 +147,7 @@ public class Network {
 				    findById(line[0]).addFriend(findById(line[1]));
 	                findById(line[1]).addFriend(findById(line[0]));
 				}catch(Exception e) {
-				    System.out.println("The id is incorrect!");
+				    System.out.println(e.getMessage());
 				}
 			
 			}
@@ -167,6 +167,8 @@ public class Network {
 		for (People p : people) {
 			if (p.getIdentifier().equals(id)) {
 				return p;
+			}else{
+				throw new IllegalArgumentException(id+" <-- The id is incorrect!");
 			}
 		}
 		return null;
