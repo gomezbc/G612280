@@ -3,6 +3,8 @@ import java.util.Collection;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.HashMap;
+import java.util.Iterator;
+import java.util.LinkedList;
 import java.util.Scanner;
 
 import java.io.File;
@@ -20,6 +22,7 @@ public class Network {
 	private HashMap<People, Integer> peopleHashMap;
     private HashMap<Integer, People> indexHashMap;
 	private Integer peopleCont;
+	private ArrayList<ArrayList<Integer>> adjacencyList;
 
 	/**
 	 * Network constructor that creates the people ArrayList
@@ -28,6 +31,7 @@ public class Network {
 		this.indexHashMap = new HashMap<Integer, People>();
 		this.peopleHashMap = new HashMap<People, Integer>();
 		this.peopleCont = 0;
+		this.adjacencyList = new ArrayList<ArrayList<Integer>>();
 	}
 
 	/**
@@ -61,6 +65,7 @@ public class Network {
 		if(peopleHashMap.containsKey(temp)) throw new IllegalArgumentException("This person already exists");
 		peopleHashMap.put(temp, peopleCont);
 		indexHashMap.put(peopleCont, temp);
+		adjacencyList.add(peopleCont,new ArrayList<Integer>());
 		peopleCont++;
 	}
 
@@ -175,11 +180,12 @@ public class Network {
 						}
 						indexHashMap.get(index0).addFriend(indexHashMap.get(index1));
 						indexHashMap.get(index1).addFriend(indexHashMap.get(index0));
+						adjacencyList.get(index0).add(index1);
+						adjacencyList.get(index1).add(index0);
 					}
 				}catch(Exception e) {
 				    System.out.println(e.getMessage());
 				}
-			
 			}
 			input2program.close();
 		} catch (FileNotFoundException e) {
@@ -337,6 +343,10 @@ public class Network {
 	    return ret;  
 	}
 
+	/**
+	 * Method that prints all the groups by movies
+	 * @return string with all the groups
+	 */
 	public String printAllGroups(){
 		String s = "";
 		ArrayList<ArrayList<People>> groups = splitInGroups();
@@ -349,5 +359,83 @@ public class Network {
 			i++;
 		}
 		return s;
+	}
+
+	/**
+	 * Method that calculates the shortest chain between two people
+	 * @param p1 the first person
+	 * @param p2 the second person
+	 * @return a linked list with the shortest chain between the two people
+	 */
+	public LinkedList<People> shortestChain(People p1, People p2){
+		try{
+			Integer index1 = peopleHashMap.get(p1);
+			Integer index2 = peopleHashMap.get(p2);
+			ArrayList<Integer> temp = breathFirstSearch(index1, index2);
+			LinkedList<People> ret = new LinkedList<People>();
+			int i = temp.get(temp.indexOf(index2));
+			int first = temp.get(temp.indexOf(index1));
+			ret.addFirst(indexHashMap.get(i));
+			while(i != first){
+				i = temp.get(temp.indexOf(i)-1);
+				ret.addFirst(indexHashMap.get(i));
+			}
+			return ret;
+
+		}catch(Exception e){
+			System.out.println(e.getMessage());
+		}
+		return null;
+	}
+
+	/**
+	 * Method that calculates a chain between two people using breath first search
+	 * @param p1 the first person
+	 * @param p2 the second person
+	 * @return an arraylist with the chain between the two people
+	 */
+	public ArrayList<Integer> breathFirstSearch(int index1, int index2){
+		ArrayList<Integer> path = new ArrayList<Integer>(); 
+		ArrayList<Integer> visited = new ArrayList<Integer>();
+		LinkedList<Integer> queue = new LinkedList<Integer>();
+		visited.add(index1);
+		queue.add(index1);
+		while (queue.size() != 0)
+        {
+			index1 = queue.poll();
+			visited.add(index1);
+			Iterator<Integer> i = adjacencyList.get(index1).listIterator();
+            while (i.hasNext())
+            {
+                int n = i.next();
+                if (n == index2) {
+                    visited.add(n);
+                    if(!path.contains(index1))path.add(index1);
+					path.add(n);
+                    return path;
+                }
+                if (!visited.contains(n)) {
+					visited.add(n);
+                    if(!path.contains(index1))path.add(index1);
+                    queue.add(n);
+                }
+            }
+        }
+		throw new IllegalArgumentException("Relationship not found");
+	}
+
+	/**
+	 * Method that prints the shortest chain between two people
+	 * @param temp the linked list with the shortest chain
+	 */
+	public void printShortestChain(LinkedList<People> temp){
+		try{
+			for (People people : temp) {
+				System.out.print(people.getIdentifier() + " --> ");
+			}
+			System.out.println("");
+		}catch(Exception e){
+			System.out.println(e.getMessage());
+		}
 	}
 }

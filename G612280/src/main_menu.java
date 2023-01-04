@@ -1,3 +1,4 @@
+import java.util.LinkedList;
 import java.util.Scanner;
 import javax.swing.JOptionPane;
 
@@ -15,7 +16,7 @@ public class main_menu {
 		int selec = -1;
 		while (selec != 0) {
 			System.out.println(
-					"1. Load 'people' into the network\n2. Load 'friends' into the network\n3. Print out people\n4. Find friends by surname\n5. Find people by city\n6. Find people by born date sorted by its atribute\n7. Split people in groups by movies\n8. Residential\n9. Load all files \n10. Find by Id (pruebas)\n0. Exit");
+					"1. Load 'people' into the network\n2. Load 'friends' into the network\n3. Print out people\n4. Find friends by surname\n5. Find people by city\n6. Find people by born date sorted by its atribute\n7. Split people in groups by movies\n8. Residential\n9. Load all files \n10. Shortest Chain \n11. Find by Id (pruebas)\n0. Exit");
 			selec = selection();
 			switch (selec) {
 				case 1:
@@ -33,8 +34,7 @@ public class main_menu {
 					break;
 				case 3:
 					System.out.println("Printing out people...");
-					//network.printToFile("printPeopleG612280.txt");
-					network.printToConsole();//pruebas
+					network.printToFile("printPeopleG612280.txt");
 					System.out.println("Printed!");
 					break;
 
@@ -87,6 +87,13 @@ public class main_menu {
 					break;
 				
 				case 10:
+					System.out.println("Shortest Chain");
+					String inputS1 = JOptionPane.showInputDialog("First person (id): ");
+					String inputS2 = JOptionPane.showInputDialog("Second person (id): ");
+					LinkedList<People> temp = network.shortestChain(network.findByIdHashMap(inputS1), network.findByIdHashMap(inputS2));
+					network.printShortestChain(temp);
+					break;
+				case 11:
 					System.out.println("Find by Id");
 					String inputId = JOptionPane.showInputDialog("Write the id you want: ");
 					try{
