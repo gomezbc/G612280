@@ -371,13 +371,13 @@ public class Network {
 		try{
 			Integer index1 = peopleHashMap.get(p1);
 			Integer index2 = peopleHashMap.get(p2);
-			ArrayList<Integer> temp = breathFirstSearch(index1, index2);
+			int[] temp = breathFirstSearch(index1, index2);
 			LinkedList<People> ret = new LinkedList<People>();
-			int i = temp.get(temp.indexOf(index2));
-			int first = temp.get(temp.indexOf(index1));
+			int i = index2;
+			int first = index1;
 			ret.addFirst(indexHashMap.get(i));
 			while(i != first){
-				i = temp.get(temp.indexOf(i)-1);
+				i = temp[i];
 				ret.addFirst(indexHashMap.get(i));
 			}
 			return ret;
@@ -394,8 +394,8 @@ public class Network {
 	 * @param p2 the second person
 	 * @return an arraylist with the chain between the two people
 	 */
-	public ArrayList<Integer> breathFirstSearch(int index1, int index2){
-		ArrayList<Integer> path = new ArrayList<Integer>(); 
+	public int[] breathFirstSearch(int index1, int index2){
+		int[] path = new int[peopleCont];
 		ArrayList<Integer> visited = new ArrayList<Integer>();
 		LinkedList<Integer> queue = new LinkedList<Integer>();
 		visited.add(index1);
@@ -410,14 +410,13 @@ public class Network {
                 int n = i.next();
                 if (n == index2) {
                     visited.add(n);
-                    if(!path.contains(index1))path.add(index1);
-					path.add(n);
+                    path[n] = index1;
                     return path;
                 }
                 if (!visited.contains(n)) {
 					visited.add(n);
-                    if(!path.contains(index1))path.add(index1);
-                    queue.add(n);
+					path[n] = index1;
+					queue.add(n);
                 }
             }
         }
