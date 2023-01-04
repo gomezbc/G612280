@@ -14,7 +14,7 @@ Javi,Javier,Frias,07-05-1993,male,Arrasate,Zumaia,Donostia,,ET;Ghost Busters;Bat
 Iker,Iker,Salmon,19-04-1979,male,Bilbao,Donostia,Donostia,Bilbao;Pamplona,Batman;ET,G6102
 Alejo,Mikel Alejo,Barcina,01-01-1994,male,Ordizia,Ordizia,Donostia,,Toy Story;The Lion King;Shrek,G6102
 Igor,Igor,Cejudo,23-03-1989,female,Donostia,Donostia,Donostia,Donostia;Amsterdam,ET;Titanic,G6102
-Mike673,Mikel,Garcia,11-08-1980,male,Donostia,Donostia,Teresianas;Santo Tomas,Donostia;Madrid;Paris,Taxi Driver;Casablanca,G6103
+Mike673,Mikel,Garcia,11-08-1980,male,Donostia,Donostia,Teresianas;Santo Tomas,Donostia;Madrid;Paris,Taxiï¿½Driver;Casablanca,G6103
 Jandrol094,Alejandro,Andoain,23-04-1983,male,Moscow,Donostia,La Salle,Donostia;Kiev,Men in Black;American Pie,G6103
 Esti374,Estibaliz,Matsuki,12-07-1988,female,Tokyo,Santiago de Chile,Salesianas;Mendebaldea,Canada;Sahara;Berlin;Lenningrade,Schindler's list;Der Untergang,G6103
 Fran451,Francisco,Zumalakarregui,23-02-1983,male,Errenteria,Frnace,Armentia Ikastola;Koldo Mitxelena;EHU,Aizkorri;Anboto;Madrid,Munich;Brigadas rojas: La banda Baader Meinhof;Operacion Ogro,G6103
@@ -25,7 +25,7 @@ asdfa59,Asdrubal,Farruquito,08-08-1959,male,Donostia,Donostia,Jesuitinas,Nigeria
 Aitor001,Aitor,Iturrioz,29-06-1988,male,Zumarraga,Donosti,EHU,Computer_Science,Persona,G6105
 Markel001,Markel,Saez_de_Jauregui,02-08-1993,male,Elorrio,Donosti,EHU,Computer_Science,El_Bueno_El_Feo_y_el_Malo, G6105
 Olatz001,Olatz,Castano,15-11-1994,female,Barakaldo,Donosti,EHU,Computer_Science,Kick-Ass,G6105
-Markel002,Markel,Chen,01-01-1990,male,Bacelona,Bolaños_de_Calatraba,Donosti,Cooking,Penguin,G6105
+Markel002,Markel,Chen,01-01-1990,male,Bacelona,Bolaï¿½os_de_Calatraba,Donosti,Cooking,Penguin,G6105
 Maria001,Maria,Garcia,05-06-1994,female,Eibar,Donosti,EHU,Computer_Science,Despicable_Me,G6105
 Carla001,Carla,Aldabaldetrecu,04-11-1994,female,Donostia,Donostia,UPV,Donostia,Despicable_Me;Grown_Ups,G6106
 Laura001,Laura,Gran,19-06-1994,female,Donostia,Donostia,UPV,Donostia,Despicable_Me;Agora,G6106

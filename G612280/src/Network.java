@@ -1,6 +1,8 @@
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Collections;
 import java.util.Comparator;
+import java.util.HashMap;
 import java.util.Scanner;
 
 import java.io.File;
@@ -15,13 +17,17 @@ import java.io.PrintWriter;
 public class Network {
 
 	private static Network network;
-	private ArrayList<People> people;
+	private HashMap<People, Integer> peopleHashMap;
+    private HashMap<Integer, People> indexHashMap;
+	private Integer peopleCont;
 
 	/**
 	 * Network constructor that creates the people ArrayList
 	 */
 	private Network() {
-		people = new ArrayList<People>();
+		this.indexHashMap = new HashMap<Integer, People>();
+		this.peopleHashMap = new HashMap<People, Integer>();
+		this.peopleCont = 0;
 	}
 
 	/**
@@ -51,8 +57,11 @@ public class Network {
 	public void addToNetwork(String pIdentifier, String pName, String pSurname, String pBirthday, String pGender,
 			String pBirthplace, String pHometown, ArrayList<String> pStudiedat, ArrayList<String> pWorkedat,
 			ArrayList<String> pMovies, String pGroupCode) {
-		network.people.add(new People(pIdentifier, pName, pSurname, pBirthday, pGender, pBirthplace, pHometown,
-				pStudiedat, pWorkedat, pMovies, pGroupCode));
+		People temp = new People(pIdentifier, pName, pSurname, pBirthday, pGender, pBirthplace, pHometown, pStudiedat,pWorkedat, pMovies, pGroupCode);
+		if(peopleHashMap.containsKey(temp)) throw new IllegalArgumentException("This person already exists");
+		peopleHashMap.put(temp, peopleCont);
+		indexHashMap.put(peopleCont, temp);
+		peopleCont++;
 	}
 
 	/**
@@ -97,9 +106,12 @@ public class Network {
 					pMovies.add(s);
 				}
 				String pGroupCode = line[10];
-				addToNetwork(pIdentifier, pName, pSurname, pBirthday, pGender, pBirthplace, pHometown, pStudiedat,
+				try{
+					addToNetwork(pIdentifier, pName, pSurname, pBirthday, pGender, pBirthplace, pHometown, pStudiedat,
 						pWorkedat, pMovies, pGroupCode);
-			
+				}catch(IllegalArgumentException e){
+					System.out.println(e.getMessage());
+				}
 					}
 				}
 					input2program.close();
@@ -118,14 +130,25 @@ public class Network {
 		String currentDir = System.getProperty("user.dir");
 		String write2file = currentDir + "/src/data/" + fileName;
 		File wrname = new File(write2file);
+		Collection<People> tempPeople = indexHashMap.values();
 		try {
 			PrintWriter wrfile = new PrintWriter(wrname);
-			for (People p : people) {
+			for (People p : tempPeople) {
 				wrfile.println(p.toString());
 			}
 			wrfile.close();
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
+		}
+	}
+
+	/**
+	 * Method that prints to the console, the people in the network.
+	 */
+	public void printToConsole(){
+		Collection<People> tempPeople = indexHashMap.values();
+		for (People p : tempPeople) {
+			System.out.println(p.toString());
 		}
 	}
 
@@ -144,8 +167,15 @@ public class Network {
 			while (input2program.hasNextLine()) {
 				String[] line = input2program.nextLine().split(",");
 				try {
-				    findById(line[0]).addFriend(findById(line[1]));
-	                findById(line[1]).addFriend(findById(line[0]));
+					Integer index0 = peopleHashMap.get(findByIdHashMap(line[0]));
+					Integer index1 = peopleHashMap.get(findByIdHashMap(line[1]));
+					if(peopleHashMap.containsKey(findByIdHashMap(line[0]))&&peopleHashMap.containsKey(findByIdHashMap(line[1]))){
+						for (People p : indexHashMap.get(index0).getFriends()) {
+							if(p.equals(indexHashMap.get(index1)))throw new IllegalArgumentException(indexHashMap.get(index0).getIdentifier()+ " and " + indexHashMap.get(index1).getIdentifier() + " already are friends");
+						}
+						indexHashMap.get(index0).addFriend(indexHashMap.get(index1));
+						indexHashMap.get(index1).addFriend(indexHashMap.get(index0));
+					}
 				}catch(Exception e) {
 				    System.out.println(e.getMessage());
 				}
@@ -158,50 +188,51 @@ public class Network {
 	}
 
 	/**
-	 * Method that search a person by id.
+	 * Method that search a person by id in the hashmap.
 	 * @param id Identifier of the people we want to find.
 	 * @return person with that id.
 	 */
 
-	public People findById(String id) {
-		for (People p : people) {
-			if (p.getIdentifier().equals(id)) {
-				return p;
-			}else{
-				throw new IllegalArgumentException(id+" <-- The id is incorrect!");
-			}
+	 public People findByIdHashMap(String id) {
+		Collection<People> tempPeople = indexHashMap.values();
+		for (People p : tempPeople) {
+			if (p.getIdentifier().equals(id)) return p;
 		}
-		return null;
+		throw new IllegalArgumentException(id+" <-- The id is incorrect!");
 	}
 
 	/**
 	 * Method that prints people from the hometown given by parameter pCity
 	 * @param pCity name of the city
 	 */
-	public void printPeopleByCity(String pCity) {
-	    System.out.println("People in "+pCity+": ");
-		for (People p : people) {
+	public String printPeopleByCity(String pCity) {
+		Collection<People> tempPeople = indexHashMap.values();
+		String s = "";
+	    s += "People in "+pCity+": \n";
+		for (People p : tempPeople) {
 			if (p.getHometown().equals(pCity)) {
-				System.out.println(p.getIdentifier() + " " + p.getSurname());
+				s += p.getIdentifier() + " " + p.getSurname() + "\n";
 			}
 		}
-
+		return s;
 	}
 
 	/**
 	 * Method that prints the friends of a person by he/she surname
 	 * @param surname surname of the person
 	 */
-	public void findFriendsBySurname(String surname) {
-		for (People p : people) {
+	public String findFriendsBySurname(String surname) {
+		Collection<People> tempPeople = indexHashMap.values();
+		String s = "";
+		for (People p : tempPeople) {
 			if (p.getSurname().equals(surname)) {
-			    System.out.println("Friends of "+p.toString()+"\n");
+			    s += "Friends of "+p.toString()+"\n";
 				for (People f : p.getFriends()) {
-					System.out.println(f.toString());
+					s += f.toString() + "\n";
 				}
 			}
 		}
-
+		return s;
 	}
 
 	/**
@@ -209,12 +240,14 @@ public class Network {
 	 * @param d1 first date
 	 * @param d2 second date (higher than d1)
 	 */
-	public void retriveByBorndDates(String d1, String d2) {
+	public String retriveByBorndDates(String d1, String d2) {
+		Collection<People> tempPeople = indexHashMap.values();
 		ArrayList<People> pArray = new ArrayList<People>();
+		String s = "";
 		try {
 		    String pD1 = d1.substring(6, 10);
 	        String pD2 = d2.substring(6, 10);
-	        for (People p : people) {
+	        for (People p : tempPeople) {
 	            try {
 	                String pD = p.getBirthdate().substring(6, 10);
 	                if (pD.compareTo(pD1) >= 0 && pD.compareTo(pD2) <= 0) {
@@ -242,28 +275,31 @@ public class Network {
 	            }
 	        });
 	        for (People p : pArray) {
-	            System.out.println(p.toString());
+				s += p.toString() + "\n";
 	        }  
 		}catch(Exception e1) {
 		    System.out.println("Dates are incorrect!");
 		}
+		return s;
 	}
 
 	/**
 	 * Method that prints the name, surname, birthdate and place of study of the people whose birthplace is the same hometown of the different people in residential.txt
 	 */
-	public void residential() {
+	public String residential() {
 		String currentDir = System.getProperty("user.dir");
 		String read = currentDir + "/src/data/" + "residential.txt";
 		File myfilename = new File(read);
+		Collection<People> tempPeople = indexHashMap.values();
+		String s = "";
 		try (Scanner input2program = new Scanner(myfilename)) {
 			while (input2program.hasNextLine()) {
 				String id = input2program.nextLine();
-				for(People p:people){
+				for(People p: tempPeople){
 					if(p.getHometown()!=null && p.getIdentifier().equals(id)){
-						for(People q:people){
+						for(People q: tempPeople){
 							if(p.getHometown().equals(q.getBirthplace())){							
-									System.out.println(q.getName() + " " + q.getSurname() + " " + q.getBirthdate() + " " + q.getStudiedat());					
+									s += q.getName() + " " + q.getSurname() + " " + q.getBirthdate() + " " + q.getStudiedat() + "\n";				
 							}
 						}
 					}
@@ -272,7 +308,7 @@ public class Network {
 		} catch (FileNotFoundException e) {
 			System.out.println("File not found");
 		}
-		
+		return s;
 	}
 	
 	/**
@@ -281,8 +317,9 @@ public class Network {
 	 */
 	public ArrayList<ArrayList<People>> splitInGroups(){
 	    ArrayList<ArrayList<People>> ret = new ArrayList<ArrayList<People>>();
+		Collection<People> tempPeople = indexHashMap.values();
 	    Boolean b = false;
-	    for(People p: people) {
+	    for(People p: tempPeople) {
 	        b = false;
 	        for(ArrayList<People> pA: ret) {
 	            if(p.getMovies().equals(pA.get(0).getMovies())) {
@@ -299,5 +336,18 @@ public class Network {
 	    }
 	    return ret;  
 	}
-	 
+
+	public String printAllGroups(){
+		String s = "";
+		ArrayList<ArrayList<People>> groups = splitInGroups();
+		int i = 0;
+		for(ArrayList<People> pA: groups) {
+			s += "\nGroup: "+i+" Movies: ";
+			for(String m: pA.get(0).getMovies()) s+=" "+m;
+			s+="\n";
+			for(People p: pA) s+= p.toString() + "\n";
+			i++;
+		}
+		return s;
+	}
 }
