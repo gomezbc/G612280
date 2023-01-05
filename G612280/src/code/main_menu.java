@@ -1,3 +1,4 @@
+package code;
 import java.util.LinkedList;
 import java.util.Scanner;
 import javax.swing.JOptionPane;
@@ -90,7 +91,13 @@ public class main_menu {
 					System.out.println("Shortest Chain");
 					String inputS1 = JOptionPane.showInputDialog("First person (id): ");
 					String inputS2 = JOptionPane.showInputDialog("Second person (id): ");
-					LinkedList<People> temp = network.shortestChain(network.findByIdHashMap(inputS1), network.findByIdHashMap(inputS2));
+					LinkedList<People> temp;
+					try {
+					    temp = network.shortestChain(network.findByIdHashMap(inputS1), network.findByIdHashMap(inputS2));
+					}catch(Exception e) {
+					    System.out.println(e.getMessage());
+					    break;
+					}
 					network.printShortestChain(temp);
 					break;
 				case 11:

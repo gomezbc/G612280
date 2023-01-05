@@ -1,3 +1,5 @@
+package code;
+import exceptions.*;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
@@ -62,7 +64,7 @@ public class Network {
 			String pBirthplace, String pHometown, ArrayList<String> pStudiedat, ArrayList<String> pWorkedat,
 			ArrayList<String> pMovies, String pGroupCode) {
 		People temp = new People(pIdentifier, pName, pSurname, pBirthday, pGender, pBirthplace, pHometown, pStudiedat,pWorkedat, pMovies, pGroupCode);
-		if(peopleHashMap.containsKey(temp)) throw new IllegalArgumentException("This person already exists");
+		if(peopleHashMap.containsKey(temp)) throw new PersonAtNetwork("This person already exists");
 		peopleHashMap.put(temp, peopleCont);
 		indexHashMap.put(peopleCont, temp);
 		adjacencyList.add(peopleCont,new ArrayList<Integer>());
@@ -176,7 +178,7 @@ public class Network {
 					Integer index1 = peopleHashMap.get(findByIdHashMap(line[1]));
 					if(peopleHashMap.containsKey(findByIdHashMap(line[0]))&&peopleHashMap.containsKey(findByIdHashMap(line[1]))){
 						for (People p : indexHashMap.get(index0).getFriends()) {
-							if(p.equals(indexHashMap.get(index1)))throw new IllegalArgumentException(indexHashMap.get(index0).getIdentifier()+ " and " + indexHashMap.get(index1).getIdentifier() + " already are friends");
+							if(p.equals(indexHashMap.get(index1)))throw new FriendsAtNetwork(indexHashMap.get(index0).getIdentifier()+ " and " + indexHashMap.get(index1).getIdentifier() + " already are friends");
 						}
 						indexHashMap.get(index0).addFriend(indexHashMap.get(index1));
 						indexHashMap.get(index1).addFriend(indexHashMap.get(index0));
@@ -204,7 +206,7 @@ public class Network {
 		for (People p : tempPeople) {
 			if (p.getIdentifier().equals(id)) return p;
 		}
-		throw new IllegalArgumentException(id+" <-- The id is incorrect!");
+		throw new PersonNotFound(id+" <-- The id is incorrect!");
 	}
 
 	/**
@@ -420,7 +422,7 @@ public class Network {
                 }
             }
         }
-		throw new IllegalArgumentException("Relationship not found");
+		throw new RelationNotExist("Relationship does not exist");
 	}
 
 	/**
