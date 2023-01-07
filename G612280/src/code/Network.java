@@ -6,9 +6,11 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.HashMap;
 import java.util.Iterator;
+import java.util.LinkedHashSet;
 import java.util.LinkedList;
 import java.util.Scanner;
-
+import java.util.Set;
+import java.util.Stack;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.PrintWriter;
@@ -81,6 +83,7 @@ public class Network {
 		try {
 			String currentDir = System.getProperty("user.dir");
 			String read = currentDir + "/src/data/" + fileName;
+			//String read = currentDir + "/G612280/src/data/" + fileName; //erik pc
 			File myfilename = new File(read);
 			Scanner input2program = new Scanner(myfilename);
 			if(input2program.hasNextLine())input2program.nextLine();
@@ -168,7 +171,7 @@ public class Network {
 	public void loadFromFileFriends(String fileName) {
 		try {
 			String currentDir = System.getProperty("user.dir");
-			File myfilename = new File(currentDir + "/src/data/" + fileName);
+			File myfilename = new File(currentDir + "/G612280/src/data/" + fileName);
 			Scanner input2program = new Scanner(myfilename);
 			input2program.nextLine();
 			while (input2program.hasNextLine()) {
@@ -363,6 +366,8 @@ public class Network {
 		return s;
 	}
 
+ //2nd milestone 
+
 	/**
 	 * Method that calculates the shortest chain between two people
 	 * @param p1 the first person
@@ -426,8 +431,8 @@ public class Network {
 	}
 
 	/**
-	 * Method that prints the shortest chain between two people
-	 * @param temp the linked list with the shortest chain
+	 * Method that prints a chain between two people
+	 * @param temp the linked list with the chain
 	 */
 	public void printShortestChain(LinkedList<People> temp){
 		try{
@@ -439,4 +444,70 @@ public class Network {
 			System.out.println(e.getMessage());
 		}
 	}
+
+	/**
+     * Obtains the longest chain of relations between person1 and person2 users in the Social Network.
+     * @param person1 Initial Person's identifier.
+     * @param person2 Final Person's identifier.
+     * @return ArrayList of Persons with the longest chain of relations.
+     * @throws RelationDoesNotExistException if the relation chain does not exist in the Social Network.
+     */
+    public Stack<People> longestChain(People p1, People p2) {
+        Stack<People> path = new Stack<People>();
+        Set<People> onPath = new LinkedHashSet<People>();
+        Stack<People> maxStack;
+        Stack<People> finalStack = new Stack<People>();
+        return longestChainBacktracking(p1, p2, path, onPath, new Stack<People>());
+    }
+    /**
+	 * worker method for longestChain that returns a stack with the longest Chain between two persons
+	 * @param p1
+	 * @param p2
+	 * @param path
+	 * @param onPath
+	 * @param maxStack
+	 * @return
+	 */
+    public Stack<People> longestChainBacktracking(People p1, People p2, Stack<People> path, Set<People> onPath, Stack<People> maxStack){
+        path.push(p1);
+        onPath.add(p1);
+        if (p1.equals(p2)) {
+            if (maxStack.size() < path.size()){
+                maxStack =  (Stack<People>) path.clone();
+            }
+            onPath.remove(p1);
+            path.pop();
+        }
+        else {
+            for (int i : adjacencyList.get(peopleHashMap.get(p1))) {
+                if (!onPath.contains(indexHashMap.get(i))) {
+                    maxStack = longestChainBacktracking(indexHashMap.get(i), p2, path, onPath, maxStack);
+                }
+            }
+			onPath.remove(p1);
+            path.pop();
+        }
+        return maxStack;
+    }
+
+	/**
+	 * prints the longest chain between two persons
+	 * @param p1
+	 * @param p2
+	 * @return
+	 */
+    public void printLongestChain(String p1, String p2) {
+        try {
+            Stack<People> ret = longestChain(findByIdHashMap(p1), findByIdHashMap(p2));
+            if (ret.isEmpty()) {
+                System.out.print("Error: There is no relation between both");
+            } else {
+                for (People p : ret) {
+                    System.out.print(p.getName() + " -> ");
+                }
+            }
+        } catch (NullPointerException e) {             
+            System.out.print("Error: Person does not exist");
+        }
+    }
 }
