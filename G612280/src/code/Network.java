@@ -214,6 +214,7 @@ public class Network {
 	/**
 	 * Method that prints people from the hometown given by parameter pCity
 	 * @param pCity name of the city
+	 * @return string with the result of the method
 	 */
 	public String printPeopleByCity(String pCity) {
 		Collection<People> tempPeople = indexHashMap.values();
@@ -230,6 +231,7 @@ public class Network {
 	/**
 	 * Method that prints the friends of a person by he/she surname
 	 * @param surname surname of the person
+	 * @return string with the result of the method
 	 */
 	public String findFriendsBySurname(String surname) {
 		Collection<People> tempPeople = indexHashMap.values();
@@ -249,6 +251,7 @@ public class Network {
 	 * Method that collects people born between two dates, and sorts them by borndate,surname and name
 	 * @param d1 first date
 	 * @param d2 second date (higher than d1)
+	 * @return string with the result of the method
 	 */
 	public String retriveByBorndDates(String d1, String d2) {
 		Collection<People> tempPeople = indexHashMap.values();
@@ -295,6 +298,7 @@ public class Network {
 
 	/**
 	 * Method that prints the name, surname, birthdate and place of study of the people whose birthplace is the same hometown of the different people in residential.txt
+	 * @return string with the result of the method
 	 */
 	public String residential() {
 		String currentDir = System.getProperty("user.dir");
@@ -396,8 +400,8 @@ public class Network {
 
 	/**
 	 * Method that calculates a chain between two people using breath first search
-	 * @param p1 the first person
-	 * @param p2 the second person
+	 * @param index1 the first person
+	 * @param index2 the second person
 	 * @return an arraylist with the chain between the two people
 	 */
 	public int[] breathFirstSearch(int index1, int index2){
@@ -446,10 +450,9 @@ public class Network {
 
 	/**
      * Obtains the longest chain of relations between person1 and person2 users in the Social Network.
-     * @param person1 Initial Person's identifier.
-     * @param person2 Final Person's identifier.
+     * @param p1 Initial Person's identifier.
+     * @param p2 Final Person's identifier.
      * @return ArrayList of Persons with the longest chain of relations.
-     * @throws RelationDoesNotExistException if the relation chain does not exist in the Social Network.
      */
     public Stack<People> longestChain(People p1, People p2) {
         Stack<People> path = new Stack<People>();
