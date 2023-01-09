@@ -454,18 +454,16 @@ public class Network {
     public Stack<People> longestChain(People p1, People p2) {
         Stack<People> path = new Stack<People>();
         Set<People> onPath = new LinkedHashSet<People>();
-        Stack<People> maxStack;
-        Stack<People> finalStack = new Stack<People>();
         return longestChainBacktracking(p1, p2, path, onPath, new Stack<People>());
     }
     /**
-	 * worker method for longestChain that returns a stack with the longest Chain between two persons
-	 * @param p1
-	 * @param p2
-	 * @param path
-	 * @param onPath
-	 * @param maxStack
-	 * @return
+	 * Worker method for longestChain that returns a stack with the longest Chain between two persons
+	 * @param p1 first person for the worker
+	 * @param p2 second person for the worker
+	 * @param path stack with the current path
+	 * @param onPath set with the people that are on the path
+	 * @param maxStack the max stack with the longest chain
+	 * @return a stack with the longest Chain between two persons
 	 */
     public Stack<People> longestChainBacktracking(People p1, People p2, Stack<People> path, Set<People> onPath, Stack<People> maxStack){
         path.push(p1);
@@ -490,30 +488,35 @@ public class Network {
     }
 
 	/**
-	 * prints the longest chain between two persons
-	 * @param p1
-	 * @param p2
-	 * @return
+	 * Prints the longest chain between two persons
+	 * @param p1 first person
+	 * @param p2 second person
 	 */
     public void printLongestChain(String p1, String p2) {
         try {
             Stack<People> ret = longestChain(findByIdHashMap(p1), findByIdHashMap(p2));
             if (ret.isEmpty()) {
-                System.out.print("Error: There is no relation between both");
+				throw new RelationNotExist("Error: There is no relation between both");
             } else {
                 for (People p : ret) {
                     System.out.print(p.getName() + " -> ");
                 }
+				System.out.print(p2);
+				System.out.println("");
             }
-        } catch (NullPointerException e) {             
-            System.out.print("Error: Person does not exist");
+        } catch (NullPointerException e) {    
+			throw new PersonNotFound("Error: Person does not exist");         
         }
     }
 
-
+	/**
+	 * Method that returns a list of all the cliques of more than 4 people in the network
+	 * @return an arraylist with all the cliques
+	 */
 	public ArrayList<ArrayList<Integer>> retrieveClique(){
 		ArrayList<ArrayList<Integer>> cliques = new ArrayList<ArrayList<Integer>>();
 		ArrayList<Integer> clique = new ArrayList<Integer>();
+		ArrayList<Integer> removeP = new ArrayList<Integer>();
 		int cont = 0;
 		for (Integer i : peopleHashMap.values()) {
 			if(adjacencyList.get(i).size()>3){
@@ -528,6 +531,16 @@ public class Network {
 						if(cont>3) clique.add(j);
 					}
 				}
+				for (Integer x : clique){
+					cont = 0;
+					for (Integer y: adjacencyList.get(x)){
+						if(clique.contains(y)||x.equals(y)) cont++;
+					}
+					if(cont+1<clique.size()) removeP.add(x);
+				}
+				for (Integer k : removeP){
+					if(clique.contains(k)) clique.remove(k);
+				}
 				Collections.sort(clique, Comparator.naturalOrder());
 				if(!cliques.contains(clique)&&clique.size()>=4) cliques.add(clique);
 			}
@@ -535,6 +548,9 @@ public class Network {
 		return cliques;
 	}
 
+	/**
+	 * Method that prints all the cliques of more than 4 people in the network
+	 */
 	public void printCliques(){
 		ArrayList<ArrayList<Integer>> cliques = new ArrayList<ArrayList<Integer>>();
 		cliques = retrieveClique();
