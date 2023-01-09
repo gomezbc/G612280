@@ -83,7 +83,6 @@ public class Network {
 		try {
 			String currentDir = System.getProperty("user.dir");
 			String read = currentDir + "/src/data/" + fileName;
-			//String read = currentDir + "/G612280/src/data/" + fileName; //erik pc
 			File myfilename = new File(read);
 			Scanner input2program = new Scanner(myfilename);
 			if(input2program.hasNextLine())input2program.nextLine();
@@ -171,7 +170,7 @@ public class Network {
 	public void loadFromFileFriends(String fileName) {
 		try {
 			String currentDir = System.getProperty("user.dir");
-			File myfilename = new File(currentDir + "/G612280/src/data/" + fileName);
+			File myfilename = new File(currentDir + "/src/data/" + fileName);
 			Scanner input2program = new Scanner(myfilename);
 			input2program.nextLine();
 			while (input2program.hasNextLine()) {
@@ -237,7 +236,7 @@ public class Network {
 		String s = "";
 		for (People p : tempPeople) {
 			if (p.getSurname().equals(surname)) {
-			    s += "Friends of "+p.toString()+"\n";
+			    s += "Friends of "+p.toString()+"\n\n";
 				for (People f : p.getFriends()) {
 					s += f.toString() + "\n";
 				}
@@ -510,4 +509,41 @@ public class Network {
             System.out.print("Error: Person does not exist");
         }
     }
+
+
+	public ArrayList<ArrayList<Integer>> retrieveClique(){
+		ArrayList<ArrayList<Integer>> cliques = new ArrayList<ArrayList<Integer>>();
+		ArrayList<Integer> clique = new ArrayList<Integer>();
+		int cont = 0;
+		for (Integer i : peopleHashMap.values()) {
+			if(adjacencyList.get(i).size()>3){
+				clique = new ArrayList<Integer>();
+				clique.add(i);
+				for (Integer j : adjacencyList.get(i)) {
+					if(adjacencyList.get(j).size()>3){
+						cont = 0;
+						for (int k : adjacencyList.get(j)) {
+							if(adjacencyList.get(i).contains(k)||k==i) cont++;
+						}
+						if(cont>3) clique.add(j);
+					}
+				}
+				Collections.sort(clique, Comparator.naturalOrder());
+				if(!cliques.contains(clique)&&clique.size()>=4) cliques.add(clique);
+			}
+		}
+		return cliques;
+	}
+
+	public void printCliques(){
+		ArrayList<ArrayList<Integer>> cliques = new ArrayList<ArrayList<Integer>>();
+		cliques = retrieveClique();
+		for (ArrayList<Integer> clique : cliques) {
+			System.out.println("Clique nº"+cliques.indexOf(clique));
+			for (int i  : clique) {
+				System.out.println(indexHashMap.get(i).getIdentifier());
+			}
+		}
+	}
+
 }

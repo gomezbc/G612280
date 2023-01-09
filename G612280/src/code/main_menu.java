@@ -4,6 +4,8 @@ import java.util.Scanner;
 
 import javax.swing.JOptionPane;
 
+import exceptions.PersonNotFound;
+
 /**
  * Main_menu main class
  */
@@ -18,7 +20,7 @@ public class main_menu {
 		int selec = -1;
 		while (selec != 0) {
 			System.out.println(
-					"1. Load 'people' into the network\n2. Load 'friends' into the network\n3. Print out people\n4. Find friends by surname\n5. Find people by city\n6. Find people by born date sorted by its atribute\n7. Split people in groups by movies\n8. Residential\n9. Load all files \n10. Shortest Chain \n11. Largest Chain\n12. Find by Id (pruebas)\n0. Exit");
+					"1. Load 'people' into the network\n2. Load 'friends' into the network\n3. Print out people\n4. Find friends by surname\n5. Find people by city\n6. Find people by born date sorted by its atribute\n7. Split people in groups by movies\n8. Residential\n9. Load all files \n10. Shortest Chain \n11. Largest Chain\n12. Retrive cliques\n13. Find by Id\n0. Exit");
 			selec = selection();
 			switch (selec) {
 				case 1:
@@ -114,14 +116,18 @@ public class main_menu {
 					}
 					break;
 				case 12:
+					System.out.println("Retrive by cliques");
+					network.printCliques();
+					break;
+				case 13:
 					System.out.println("Find by Id");
 					String inputId = JOptionPane.showInputDialog("Write the id you want: ");
 					try{
 						System.out.println(network.findByIdHashMap(inputId));
-					}catch(NullPointerException e){
+						System.out.println("Printed!");
+					}catch(PersonNotFound e){
 						System.out.println(e.getMessage());
 					}
-					System.out.println("Printed!");
 					break;
 
 				case 0:
