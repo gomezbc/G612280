@@ -461,6 +461,7 @@ public class Network {
     }
     /**
 	 * Worker method for longestChain that returns a stack with the longest Chain between two persons
+	 * Because of the nature of the problem, the method uses backtracking and checks all the links. And because the network has a high amount of people it will take some time to look at all the edges in the network for a link.
 	 * @param p1 first person for the worker
 	 * @param p2 second person for the worker
 	 * @param path stack with the current path
